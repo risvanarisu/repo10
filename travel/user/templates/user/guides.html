@@ -1,0 +1,100 @@
+{% extends 'user/master1.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div style="background-color: rgb(203, 111, 176)" class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="card" style="width: 16rem;">
+                <img src="{% static 'images/guide1.jpg' %}" class="card-img-top" alt="..." height="230px">
+                <div class="card-body">
+                  <h5 class="card-title">xerina</h5>
+                  <p class="card-text">
+                    <label for="">place1</label><br> 
+                    <label for="">status :</label> 
+                    <input type="radio" name="h" id="">vacant <br>
+                </p>
+                  <a href="{% url 'user:guideview' %}" class="btn btn-primary">Request</a>
+                </div>
+              </div>    
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4">
+    <div class="card" style="width: 16rem;">
+        <img src="{% static 'images/guide2.jpg' %}" class="card-img-top" alt="..."height="230px">
+        <div class="card-body">
+          <h5 class="card-title">jaanvika</h5>
+          <p class="card-text"><label for="">place1</label><br> 
+            <label for="">status :</label> 
+            <input type="radio" name="h" id="">vacant <br></p>
+          <a href="{% url 'user:guideview' %}" class="btn btn-primary">Request</a>
+        </div>
+      </div>    
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4">
+    <div class="card" style="width: 16rem;">
+        <img src="{% static 'images/guide3.jpg' %}" class="card-img-top" alt="..."height="230px">
+        <div class="card-body">
+          <h5 class="card-title">alex</h5>
+          <p class="card-text"><label for="">place1</label><br> 
+            <label for="">status :</label> 
+            <input type="radio" name="h" id="">vacant <br></p>
+          <a href="{% url 'user:guideview' %}" class="btn btn-primary">Request</a>
+        </div>
+      </div>    
+</div>
+
+<div class="col-12 col-sm-12 col-md-6 col-lg-4">
+    <div class="card" style="width: 16rem;">
+        <img src="{% static 'images/guide4.jpg' %}" class="card-img-top" alt="..."height="230px">
+        <div class="card-body">
+          <h5 class="card-title">kelvin</h5>
+          <p class="card-text"><label for="">place1</label><br> 
+            <label for="">status :</label> 
+            <input type="radio" name="h" id="">vacant <br></p>
+          <a href="{% url 'user:guideview' %}" class="btn btn-primary">Request</a>
+        </div>
+      </div>    
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4">
+    <div class="card" style="width: 16rem;">
+        <img src="{% static 'images/guide5.jpg' %}" class="card-img-top" alt="..."height="230px">
+        <div class="card-body">
+          <h5 class="card-title">xavier</h5>
+          <p class="card-text"><label for="">place1</label><br> 
+            <label for="">status :</label> 
+            <input type="radio" name="h" id="">vacant <br></p>
+          <a href="{% url 'user:guideview' %}" class="btn btn-primary">Request</a>
+        </div>
+      </div>    
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4">
+    <div class="card" style="width: 16rem;">
+        <img src="{% static 'images/guide6.jpg' %}" class="card-img-top" alt="..."height="230px">
+        <div class="card-body">
+          <h5 class="card-title">peter</h5>
+          <p class="card-text"><label for="">place1</label><br> 
+            <label for="">status :</label> 
+            <input type="radio" name="h" id="">vacant <br></p>
+          <a href="{% url 'user:guideview' %}" class="btn btn-primary">Request</a>
+        </div>
+      </div>    
+</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'user/master1.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="container" style="background-color: rgb(192, 95, 185);">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <img src="{% static 'images/prof1.jpg'%}" class="rounded-circle"style="margin-left:40%;" alt="...">
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            
+
+            <table class="table table-striped">
+                <tr><th>First name</th>
+                    <td>risu</td>
+                </tr>
+                <tr>
+                    <th>Last name</th>
+                    <td>risu</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>female</td>
+                </tr>
+                <tr>
+                    <th>Date of birth</th>
+                    <td>1998-04-14</td>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <td>9207861218</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>vkrisvanarisu@gmail.com</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>muchukunnu</td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>india</td>
+                </tr>
+              </table>
+              <br>
+             <a href=""> <!-- Button trigger modal -->
+                <button type="button"style="margin-left:500px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  Edit profile
+                </button></a>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <label for="">First Name :</label> <input type="text" placeholder="first name" name="" id="">
+                        <label for="">Last Name :</label> <input type="text" placeholder="last name" name="" id="">
+                        <label for="exampleFormControlSelect1">gender :</label><input type="radio" name="gen" id=""> male <input type="radio" name="gen" id=""> female
+                        <label for="">Phone number :</label> <input type="text" placeholder="phone number" name="" id="">
+                        <label for="">Email:</label> <input type="text" placeholder="email" name="" id="">
+                        <label for="">Address :</label> <textarea name="" id="" cols="30" rows="10"></textarea>
+                
+                    
+                    
+                    </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <a href="{% url 'user:home' %}"><button type="button" class="btn btn-primary">Go to home</button></a>
+              <a href="{% url 'user:homepage' %}"><button type="button" class="btn btn-primary">Logout</button></a>
+        
+            </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

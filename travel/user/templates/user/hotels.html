@@ -1,0 +1,167 @@
+{% extends 'user/master1.html' %}
+
+
+{% block content %}
+
+<style>
+  .container{
+    background-color: #cb69c7;
+  }
+</style>
+
+
+
+{% load static %}
+
+
+
+
+
+ 
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <nav class="navbar" style="background-color: #e19bde;">
+          <div class="container-fluid">
+            <h1>FOOD & ACCOMEDATION</h1>
+          </div>
+        </nav>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="mb-3">
+        <label for=""><h3>Check in : </h3></label>
+      <input type="date" class="form-control" name="" id=""  ><br>
+      <label for=""><h3>Check out : </h3></label>
+      <input type="date" class="form-control" name="" id=""  ><br>
+      <label for=""><h3>Rooms : </h3></label>
+      <input class="form-control form-control-lg"  type="text" name="" id="" placeholder="eg:2 adults+2 children">
+      <br>
+      <input class="form-control form-control-lg"  type="number" name="" id="" placeholder="number of rooms you want's">
+    </div>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-sm example">
+        <option selected>Select Days You Want To Stay </option>
+        <option value="1">1 day</option>
+        <option value="2">2 days</option>
+        <option value="3">3 days</option>
+        <option value="2">4 days</option>
+        <option value="2">5 days</option>
+        <option value="2">6 days</option>
+        <option value="2">7 days</option>
+      </select>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-sm example">
+        <option selected>Select Your Budjet </option>
+        <option value="1">low</option>
+        <option value="2">medium</option>
+        <option value="3">high</option>
+        <option value="2">get offers upto 40%</option>
+      </select>
+      
+      
+      </div>
+      <button type="button" class="btn btn-primary btn-lg"> <a href=""> Search</a></button>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12"></div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src=" {% static 'images/hot1.jpg' %}" class="img-fluid rounded-start" alt="..." >
+        <label for="">review :</label>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">hotel citygate</h5>
+          <label for="">place :</label><input type="text" name="" id=""><br><br>
+          <label for=""> Star :</label><input type="text" name="" id=""><button type="button" class="btn btn-warning"><a href="{% url 'user:hotelview' %}">View</a> </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-6">
+  <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src=" {% static 'images/hot2.jpg' %}" class="img-fluid rounded-start" alt="..." >
+        <label for="">review :</label>
+
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">hotel Ryn</h5>
+            <label for="">place :</label><input type="text" name="" id=""><br><br>
+            <label for=""> Star :</label><input type="text" name="" id=""><button type="button" class="btn btn-warning"><a href="{% url 'user:hotelview' %}">View</a> </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src=" {% static 'images/hot3.jpg' %}" class="img-fluid rounded-start" alt="..." >
+         
+            <label for="">review :</label> </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">hotel Bathool</h5>
+              <label for="">place :</label><input type="text" name="" id=""><br><br>
+              <label for=""> Star :</label><input type="text" name="" id=""><button type="button" class="btn btn-warning"><a href="{% url 'user:hotelview' %}">View</a> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src=" {% static 'images/hot4.webp' %}" class="img-fluid rounded-start" alt="..." >
+            
+              <label for="">review :</label></div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">hotel Corn Flakes</h5>
+                <label for="">place :</label><input type="text" name="" id=""><br><br>
+                <label for=""> Star :</label><input type="text" name="" id=""><button type="button" class="btn btn-warning"><a href="{% url 'user:hotelview' %}">View</a> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src=" {% static 'images/HOT5.jpg' %}" class="img-fluid rounded-start" alt="..." >
+                <label for="">review :</label></div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">hotel Center Square</h5>
+                  <label for="">place :</label><input type="text" name="" id=""><br><br>
+                  <label for=""> Star :</label><input type="text" name="" id=""><button type="button" class="btn btn-warning"><a href="{% url 'user:hotelview' %}">View</a> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src=" {% static 'images/hot6.jpg' %}" class="img-fluid rounded-start" alt="..." >
+                  <label for="">review :</label> </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">hotel Palace Villa</h5>
+                    <label for="">place :</label><input type="text" name="" id=""><br><br>
+                    <label for=""> Star :</label><input type="text" name="" id=""><button type="button" class="btn btn-warning"><a href="{% url 'user:hotelview' %}">View</a> </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+</div>
+
+{% endblock %}
