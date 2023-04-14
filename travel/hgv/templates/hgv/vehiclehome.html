@@ -1,0 +1,146 @@
+{% extends 'hgv/master3.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+.side{
+height: 700px;
+width: ;
+background-color: black;
+color: rgb(206, 80, 156);
+font-size: x-large;
+font-family: 'Times New Roman', Times, serif;
+}
+.container{
+    background-color:rgb(150, 83, 143) ;
+}
+.display-6{
+    color: rgb(122, 10, 14);
+}
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+<div class="side">
+    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'hgv:vehiclehome' %}">Bookings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'hgv:vehicles' %}">Me</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'hgv:profile1' %}">Profile</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Add new
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'hgv:edithotel' %}">Edit details</a></li>
+            <li><a class="dropdown-item" href="{% url 'hgv:addnewhotel' %}">Add new</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'hgv:edithotel' %}">Delete</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+</div>
+</div>
+<div class="col-12 col-sm-12 col-md-9 col-lg-9">
+    <h1 class="display-6">Bookings</h1>
+
+
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">booked date</th>
+                    <th scope="col">Request date</th>
+                    <th scope="col">out date</th>
+                    <th scope="col">vehicle id</th>
+                    <th>status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Risha</th>
+                    <td>risha@gmail.com</td>
+                    <td>koyilandy</td>
+                    <td>64743383743</td>
+                    <td>14/04/2023</td>
+                    <td>march 10,2021 <br>
+                    9:53 pm
+                    </td>
+                    <td> 17/04/2023</td>
+                    <td>546</td>
+                    <td>paid</td>
+                    <td><button type="button" class="btn btn-info">Accept</button>
+                        <button type="button" class="btn btn-info">Decline</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Risha</th>
+                    <td>risha@gmail.com</td>
+                    <td>koyilandy</td>
+                    <td>64743383743</td>
+                    <td>14/04/2023</td>
+                    <td>march 10,2021 <br>
+                    9:53 pm
+                    </td>
+                    <td> 17/04/2023</td>
+                    <td>546</td>
+                    <td>paid</td>
+                    <td><button type="button" class="btn btn-info">Accept</button>
+                        <button type="button" class="btn btn-info">Decline</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Risha</th>
+                    <td>risha@gmail.com</td>
+                    <td>koyilandy</td>
+                    <td>64743383743</td>
+                    <td>14/04/2023</td>
+                    <td>march 10,2021 <br>
+                    9:53 pm
+                    </td>
+                    <td> 17/04/2023</td>
+                    <td>546</td>
+                    <td>paid</td>
+                    <td><button type="button" class="btn btn-info">Accept</button>
+                        <button type="button" class="btn btn-info">Decline</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Risha</th>
+                    <td>risha@gmail.com</td>
+                    <td>koyilandy</td>
+                    <td>64743383743</td>
+                    <td>14/04/2023</td>
+                    <td>march 10,2021 <br>
+                    9:53 pm
+                    </td>
+                    <td> 17/04/2023</td>
+                    <td>546</td>
+                    <td>paid</td>
+                    <td><button type="button" class="btn btn-info">Accept</button>
+                        <button type="button" class="btn btn-info">Decline</button>
+                    </td>
+                </tr> 
+                </tbody>
+              </table>
+        </div>
+
+
+
+</div>
+</div>
+{% endblock %} 
