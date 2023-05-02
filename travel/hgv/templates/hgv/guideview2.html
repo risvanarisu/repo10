@@ -3,7 +3,83 @@
 {% block content %}
 
 {% load static %}
+<style>
+.container{
+background-color: bisque;
+}
+button{
+margin-left:80%;
+    
+}
+</style>
+    
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+      <h1 class="display-6">Rayn</h1><a href="{% url 'hgv:guidehome' %}"><button type="button" class="btn btn-success" >Go back</button></a>
+      </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <img src="{% static 'images/guide2.jpg' %}" class="rounded float-start" alt="...">
+    
+        </div>
 
+            <br>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" placeholder="">
+              <label for="floatingInput">Name</label>
+            </div>
+            <br>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" placeholder="">
+              <label for="floatingInput"> Place </label>
+            </div>
+            <br>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" placeholder="">
+              <label for="floatingInput"> Type</label>
+            </div>
+            <br>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" placeholder="">
+              <label for="floatingInput"> Price/day</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="">
+              <label for="floatingInput"> email</label>
+            </div>
+            <br>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" placeholder="">
+              <label for="floatingInput"> phone number</label>
+            </div>
+    
+    <h1 class="display-6">Reviews</h1>
+    
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">alakananda</h5>
+              <p class="card-text">thank you for your guiding.</p>
+              <a href="#" class="btn btn-primary">Reply</a>
+          </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">shiyas</h5>
+              <p class="card-text">i like your services.</p>
+              <a href="#" class="btn btn-primary">Reply</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
 
 
 

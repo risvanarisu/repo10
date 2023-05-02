@@ -20,4 +20,5 @@ path('master1/',views.getmaster1,name="master1"),
 path('guideview/',views.getguideview,name="guideview"),
 path('hotelview/',views.gethotelview,name="hotelview"),
 path('bookinghotel/',views.getbookinghotel,name="bookinghotel"),
+path('mybookings/',views.getmybookings,name="mybookings"),
 ]

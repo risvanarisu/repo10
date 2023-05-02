@@ -15,6 +15,10 @@ button{
 width: 100px;
 
 }
+ 
+#but1{
+  margin-left: 40%;
+}
 
 
 font-face{
@@ -24,6 +28,12 @@ font-face{
 h1{
 
   font-family: myfont;
+}
+#text1,#pass1{
+  padding-right: 50%;
+}
+.modal-body,.modal-footer,.modal-header{
+  background:linear-gradient(#ccae2a,#edc9a1);
 }
 </style>
 
@@ -40,8 +50,33 @@ h1{
   <h1 class="HY" style=" padding-left:195px;color: rgb(145, 21, 103);">WHERE EVER YOU GO ,  GO WITH YOUR HEART</h1>
   <p style=" padding-left:140px; color: rgb(68, 29, 29); font-weight: 700;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime pariatur ipsa commodi! Quas nulla praesentium repellendus vitae? Adipisci magnam, alias corrupti aspernatur totam explicabo eum consequatur ratione illum saepe voluptatem nulla culpa sapiente nesciunt voluptate asperiores porro animi modi hic laudantium cum esse facilis sunt dolores. Eius consequatur rerum, necessitatibus cum ad porro aperiam vel dolore corporis non molestiae? Animi perferendis molestiae vel quasi magni fugiat corrupti nobis possimus saepe. Ipsum suscipit autem excepturi dolor provident dolorum, ratione rem unde quibusdam aut officia tenetur sit a, numquam atquedignissimos similique illum ea fugit aut doloribus veniam dicta non commodi id atque!</p>
   
-  <a style=" padding-left:30%;" href="{% url 'user:login' %}"><button type="button" class="btn btn-info rounded-pill">Log in</button></a>
-  <a href="{% url 'user:signup' %}"><button type="button" class="btn btn-info rounded-pill">Sign up</button></a>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-info rounded-pill"id="but1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Log In
+  </button>
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Log in </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label for=""> User Name:</label><input type="text" name="" id="text1"><br><br>
+          
+          <label for="">Password :</label><input type="password" name="" id="pass1"><br><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Log In</button>
+          <button type="button" class="btn btn-warning">cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'user:signup' %}"><button type="button" id="but2" class="btn btn-info rounded-pill">Sign Up</button></a>
   
   </div>
   <div class="container">

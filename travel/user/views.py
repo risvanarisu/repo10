@@ -52,3 +52,6 @@ def gethotelview(request):
 
 def getbookinghotel(request):
     return render(request,"user/bookinghotel.html")
+
+def getmybookings(request):
+    return render(request,"user/mybookings.html")

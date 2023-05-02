@@ -4,8 +4,21 @@
 {% block content %}
 
 {% load static %}
+<style>
+#p1{
+  padding-right: 200px;
+}
+#p2{
+  padding-right: 250px;
+}
+.modal-body{
+  background-color: rgb(241, 221, 185);
+}
 
-
+#button1{
+  margin-left:40%;
+}
+</style>
 <div class="container" style="background-color: rgb(192, 95, 185);">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -48,41 +61,40 @@
                 </tr>
               </table>
               <br>
-             <a href=""> <!-- Button trigger modal -->
-                <button type="button"style="margin-left:500px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary"id="button1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                   Edit profile
-                </button></a>
+                </button>
+                
                 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit profile & Password </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <label for="">First Name :</label> <input type="text" placeholder="first name" name="" id="">
-                        <label for="">Last Name :</label> <input type="text" placeholder="last name" name="" id="">
-                        <label for="exampleFormControlSelect1">gender :</label><input type="radio" name="gen" id=""> male <input type="radio" name="gen" id=""> female
-                        <label for="">Phone number :</label> <input type="text" placeholder="phone number" name="" id="">
-                        <label for="">Email:</label> <input type="text" placeholder="email" name="" id="">
-                        <label for="">Address :</label> <textarea name="" id="" cols="30" rows="10"></textarea>
-                
-                    
-                    
-                    </div>
+                        <label for=""> First name :</label><input type="text" name="" id="p1"><br><br>
+                        <label for=""> Last name :</label><input type="text" name="" id="p2"><br><br>
+                        <label for="">Date of birth :</label><input type="date" name="" id="p2"><br><br>
+                        <label for=""> Mobile number :</label><input type="text" name="" id="p1"><br><br>
+                        <label for=""> Address :</label><textarea name="" id="p1" cols="30" rows="10"></textarea><br><br>
+                        <label for="">Date of birth :</label><input type="date" name="" id="p2"><br><br>
+                        <label for=""> Old Password :</label><input type="password" name="" id="p1"><br><br>
+                        <label for=""> New Password :</label><input type="password" name="" id="p1"><br><br>
+                        <label for="">Confirm Password :</label><input type="password" name="" id="p1">
+                      </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">save</button>
+                        <button type="button" class="btn btn-primary">cancel</button>
                       </div>
                     </div>
                   </div>
                 </div>
-              <a href="{% url 'user:home' %}"><button type="button" class="btn btn-primary">Go to home</button></a>
-              <a href="{% url 'user:homepage' %}"><button type="button" class="btn btn-primary">Logout</button></a>
+
+              <a href="{% url 'user:homepage' %}"><button type="button"id="button2" class="btn btn-primary">Logout</button></a>
         
             </div>
     </div>

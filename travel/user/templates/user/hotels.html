@@ -7,6 +7,14 @@
   .container{
     background-color: #cb69c7;
   }
+  
+  .navbar{
+    background-color: rgb(236, 224, 115);
+   border: 5px solid rgb(185, 110, 35);
+    }
+    .display-6{
+      color: rgb(37, 169, 97);
+    }
 </style>
 
 
@@ -21,45 +29,30 @@
 <div class="container">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-        <nav class="navbar" style="background-color: #e19bde;">
-          <div class="container-fluid">
-            <h1>FOOD & ACCOMEDATION</h1>
-          </div>
+        
+        
+      <nav class="navbar navbar-expand-lg" style="background-color:rgb(237, 207, 87);">
+        <div class="container-fluid">
+        <form>
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <h2 class="display-6">WE ARE READY TO SERVE YOU</h2>
+          
+          <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="Place" aria-label="Search"></a>
+          <a class="nav-link active" href="{% url 'user:vehicleview' %}"><button class="btn btn-success" type="submit" >Search</button></a>
+        </div>
+        </div>
+        
+        </div>
+        </form>
         </nav>
-      </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="mb-3">
-        <label for=""><h3>Check in : </h3></label>
-      <input type="date" class="form-control" name="" id=""  ><br>
-      <label for=""><h3>Check out : </h3></label>
-      <input type="date" class="form-control" name="" id=""  ><br>
-      <label for=""><h3>Rooms : </h3></label>
-      <input class="form-control form-control-lg"  type="text" name="" id="" placeholder="eg:2 adults+2 children">
-      <br>
-      <input class="form-control form-control-lg"  type="number" name="" id="" placeholder="number of rooms you want's">
-    </div>
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-sm example">
-        <option selected>Select Days You Want To Stay </option>
-        <option value="1">1 day</option>
-        <option value="2">2 days</option>
-        <option value="3">3 days</option>
-        <option value="2">4 days</option>
-        <option value="2">5 days</option>
-        <option value="2">6 days</option>
-        <option value="2">7 days</option>
-      </select>
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-sm example">
-        <option selected>Select Your Budjet </option>
-        <option value="1">low</option>
-        <option value="2">medium</option>
-        <option value="3">high</option>
-        <option value="2">get offers upto 40%</option>
-      </select>
-      
       
       </div>
-      <button type="button" class="btn btn-primary btn-lg"> <a href=""> Search</a></button>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12"></div>
+      
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">

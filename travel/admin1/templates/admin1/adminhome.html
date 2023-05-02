@@ -1,0 +1,226 @@
+{% extends 'admin1/master4.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+    .container{
+      background-color: antiquewhite;
+    }
+    .display-6{
+      color: rgb(241, 14, 215);
+    }
+    #p1,#p2,#p3{
+        padding-right: 200px;
+    }
+    .modal-body{
+        background-color: rgb(241, 221, 185);
+    }
+    
+
+  </style>
+  
+  
+  <div class="container">
+      <div class="row">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Change Password
+  </button>
+  <button type="button" class="btn btn-success">
+    Log Out
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Password </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label for=""> Old Password :</label><input type="password" name="" id="p1"><br><br>
+          <label for=""> New Password :</label><input type="password" name="" id="p2"><br><br>
+          <label for="">Confirm Password :</label><input type="password" name="" id="p3">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">save</button>
+          <button type="button" class="btn btn-primary">cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <h1 class="display-6"> New Hotel Bookings</h1>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <table class="table table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">hotel name <br>& registration Id </th>
+                      <th scope="col">Customer name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Mobile</th>
+                      <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
+                      <th scope="col">Request date</th>
+                      <th scope="col">cash</th>
+                      <th scope="col">status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>hotel city gate 64738493</td>
+                      <td>risha</td>
+                      <td>risha@gmail.com</td>
+                      <td>koyilandy</td>
+                      <td>64743383743</td>
+                      <td>risha <br>637182173812918 <br> 67363</td>
+                      <td>march 10,2021 <br>
+                      9:53 pm
+                      </td>
+                      <td>10000
+                    </td>
+                    <td>paid
+                    </td>
+                    </tr>
+                    <tr>
+                      <td>hotel 5845438</td>
+                      <td> rahul </td>
+                      <td>risha@gmail.com</td>
+                      <td>koyilandy</td>
+                      <td>64743383743</td>
+                      <td>risha <br>637182173812918 <br> 67363</td>
+                      <td>march 10,2021 <br>
+                      9:53 pm
+                      </td>
+                      <td>10000
+                      </td>
+                      <td>not paid
+                    </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+  
+  
+  
+  
+          </div>
+          <h1 class="display-6"> New Guide Bookings </h1>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <table class="table table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">guide name </th>
+                      <th scope="col">cash</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Mobile</th>
+                      <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
+                      <th scope="col">Request date</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ryan</td>
+                      <td>5000</td>
+                      <td>risha@gmail.com</td>
+                      <td>koyilandy</td>
+                      <td>64743383743</td>
+                      <td>risha <br>637182173812918 <br> 67363</td>
+                      <td>march 10,2021 <br>
+                      9:53 pm
+                      </td>
+                      <td>paid
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>peter</td>
+                      <td> 3000 </td>
+                      <td>risha@gmail.com</td>
+                      <td>koyilandy</td>
+                      <td>64743383743</td>
+                      <td>risha <br>637182173812918 <br> 67363</td>
+                      <td>march 10,2021 <br>
+                      9:53 pm
+                      </td>
+                      <td>not paid
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+  
+  
+  
+  
+          </div>
+          <h1 class="display-6">New Vehicle Bookings</h1>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+              <table class="table table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">vehicle name & Id </th>
+                      <th scope="col">price</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Mobile</th>
+                      <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
+                      <th scope="col">Request date</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>benz 64738493</td>
+                      <td>5000</td>
+                      <td>risha@gmail.com</td>
+                      <td>koyilandy</td>
+                      <td>64743383743</td>
+                      <td>risha <br>637182173812918 <br> 67363</td>
+                      <td>march 10,2021 <br>
+                      9:53 pm
+                      </td>
+                      <td>not paid
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>swift 5845438</td>
+                      <td> 3000 </td>
+                      <td>risha@gmail.com</td>
+                      <td>koyilandy</td>
+                      <td>64743383743</td>
+                      <td>risha <br>637182173812918 <br> 67363</td>
+                      <td>march 10,2021 <br>
+                      9:53 pm
+                      </td>
+                      <td>paid
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+  
+  
+  
+  
+          </div>
+      </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+{% endblock %}

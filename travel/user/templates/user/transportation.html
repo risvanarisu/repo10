@@ -21,7 +21,7 @@ min-height:40px;
 .navbar{
     background-color: rgb(236, 224, 115);
     border: 5px solid rgb(110, 143, 100);
-    height: 75px;
+
     }
 .display-6{
     color: rgb(53, 9, 9);
@@ -33,108 +33,35 @@ min-height:40px;
 </style>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <h1 class="display-6">Taxi Service <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-taxi-front" viewBox="0 0 16 16">
-                <path d="M4.862 5.276 3.906 7.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17 1.247 0 2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 5H5.309a.5.5 0 0 0-.447.276ZM4 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-9 0a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"/>
-                <path d="M6 1a1 1 0 0 0-1 1v1h-.181A2.5 2.5 0 0 0 2.52 4.515l-.792 1.848a.807.807 0 0 1-.38.404c-.5.25-.855.715-.965 1.262L.05 9.708a2.5 2.5 0 0 0-.049.49v.413c0 .814.39 1.543 1 1.997V14.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1.338c1.292.048 2.745.088 4 .088s2.708-.04 4-.088V14.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1.892c.61-.454 1-1.183 1-1.997v-.413c0-.165-.016-.329-.049-.49l-.335-1.68a1.807 1.807 0 0 0-.964-1.261.807.807 0 0 1-.381-.404l-.792-1.848A2.5 2.5 0 0 0 11.181 3H11V2a1 1 0 0 0-1-1H6ZM4.819 4h6.362a1.5 1.5 0 0 1 1.379.91l.792 1.847a1.8 1.8 0 0 0 .853.904c.222.112.381.32.43.564l.336 1.679c.02.097.029.195.029.294v.413a1.48 1.48 0 0 1-1.408 1.484c-1.555.07-3.786.155-5.592.155-1.806 0-4.037-.084-5.592-.155A1.479 1.479 0 0 1 1 10.611v-.413c0-.099.01-.197.03-.294l.335-1.68a.807.807 0 0 1 .43-.563c.383-.19.685-.511.853-.904l.792-1.848A1.5 1.5 0 0 1 4.82 4Z"/>
-              </svg></h1>
-<nav class="navbar navbar-expand-lg" style="background-color:rgb(237, 207, 87);">
-    <div class="container-fluid">
-        <form>
-      <a class="navbar-brand" href="#"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            
-          <a class="nav-link active" aria-current="page" href=""><input class="form-control me-2" type="date" placeholder="" aria-label="Search"></a>
-    
-          <a class="nav-link active" href=""><input class="form-control me-2" type="time" placeholder="" aria-label="Search"></a>
-          <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="pick up location " aria-label="Search"></a>
-          <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="return place" aria-label="Search"></a>
-          <a class="nav-link active" href="{% url 'user:vehicleview' %}"><button class="btn btn-success" type="submit" >Search</button></a>
-          
-          
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         
-
+        
+        <nav class="navbar navbar-expand-lg" style="background-color:rgb(237, 207, 87);">
+          <div class="container-fluid">
+          <form>
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+              <h2 class="display-6">WE ARE READY TO SERVE YOU</h2>
+            
+            <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="Place" aria-label="Search"></a>
+            <a class="nav-link active" href="{% url 'user:vehicleview' %}"><button class="btn btn-success" type="submit" >Search</button></a>
+          </div>
+          </div>
+          
+          </div>
+          </form>
+          </nav>
+        
         </div>
-      </div>
-    
-    </div>
-</form>
-  </nav>
-
-
-
-</div>
+        
 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-    <h1 class="display-6">Public bus <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bus-front" viewBox="0 0 16 16">
-        <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H7Zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9c1.876 0 3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44.303 44.303 0 0 0 8 4Zm0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44.304 44.304 0 0 1 8 2c1.876 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43.306 43.306 0 0 0 8 3Z"/>
-        <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A43.61 43.61 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2V8ZM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A42.611 42.611 0 0 1 8 1Z"/>
-      </svg></h1>
-<nav class="navbar navbar-expand-lg" style="background-color:rgb(237, 207, 87);">
-<div class="container-fluid">
-<form>
-<a class="navbar-brand" href="#"></a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-<div class="navbar-nav">
-    
-  <a class="nav-link active" aria-current="page" href=""><input class="form-control me-2" type="date" placeholder="" aria-label="Search"></a>
-
-  <a class="nav-link active" href=""><input class="form-control me-2" type="time" placeholder="" aria-label="Search"></a>
-  <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="pick up location " aria-label="Search"></a>
-  <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="return place" aria-label="Search"></a>
-  <a class="nav-link active" href="{% url 'user:vehicleview' %}"><button class="btn btn-success" type="submit" >Search</button></a>
-  
-  
-
-
-</div>
+  <h1 class="display-6">Rent a car ?</h1>
 </div>
 
-</div>
-</form>
-</nav>
-
-
-
-</div>
-<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-    <h1 class="display-6">Rent a car ?</h1>
-<nav class="navbar navbar-expand-lg" style="background-color:rgb(237, 207, 87);">
-<div class="container-fluid">
-<form>
-<a class="navbar-brand" href="#"></a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-<div class="navbar-nav">
-    
-  <a class="nav-link active" aria-current="page" href=""><input class="form-control me-2" type="date" placeholder="" aria-label="Search"></a>
-
-  <a class="nav-link active" href=""><input class="form-control me-2" type="date" placeholder="" aria-label="Search"></a>
-  <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="pick up location " aria-label="Search"></a>
-  <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="price per day" aria-label="Search"></a>
-  <a class="nav-link active" href="{% url 'user:vehicleview' %}"><button class="btn btn-success" type="submit" >Search</button></a>
-  
-  
-
-
-</div>
-</div>
-
-</div>
-</form>
-</nav>
-
-
-
-</div>
 <div class="col-12 col-sm-12 col-md-6 col-lg-4">
     <a href="{% url 'user:vehicleview' %}"><div class="card" style="width: 18rem;height: 250px;">
         <img src="{% static 'images/car1.jpg' %}" class="card-img-top"style="height:150px ;" alt="...">
@@ -166,38 +93,9 @@ min-height:40px;
             
       </div>
     </div>
-<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-    <h1 class="display-6">Rent a bike ?</h1>
-<nav class="navbar navbar-expand-lg" style="background-color:rgb(237, 207, 87);">
-<div class="container-fluid">
-<form>
-<a class="navbar-brand" href="#"></a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-<div class="navbar-nav">
-    
-  <a class="nav-link active" aria-current="page" href=""><input class="form-control me-2" type="date" placeholder="" aria-label="Search"></a>
-
-  <a class="nav-link active" href=""><input class="form-control me-2" type="date" placeholder="" aria-label="Search"></a>
-  <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="pick up location " aria-label="Search"></a>
-  <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="price per day" aria-label="Search"></a>
-  <a class="nav-link active" href="{% url 'user:vehicleview' %}"><button class="btn btn-success" type="submit" >Search</button></a>
-  
-  
-
-
-</div>
-</div>
-
-</div>
-</form>
-</nav>
-
-
-
-</div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+      <h1 class="display-6">Rent a bike ?</h1>
+  </div>
 <div class="col-12 col-sm-12 col-md-6 col-lg-4">
     <a href="{% url 'user:vehicleview' %}"><div class="card" style="width: 18rem;height: 250px;">
         <img src="{% static 'images/bike1.jpg' %}" class="card-img-top"style="height:150px ;" alt="...">
@@ -229,6 +127,70 @@ min-height:40px;
             
       </div>
     </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+      <h1 class="display-6">Cab Service <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-taxi-front" viewBox="0 0 16 16">
+          <path d="M4.862 5.276 3.906 7.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17 1.247 0 2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 5H5.309a.5.5 0 0 0-.447.276ZM4 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-9 0a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"/>
+          <path d="M6 1a1 1 0 0 0-1 1v1h-.181A2.5 2.5 0 0 0 2.52 4.515l-.792 1.848a.807.807 0 0 1-.38.404c-.5.25-.855.715-.965 1.262L.05 9.708a2.5 2.5 0 0 0-.049.49v.413c0 .814.39 1.543 1 1.997V14.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1.338c1.292.048 2.745.088 4 .088s2.708-.04 4-.088V14.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1.892c.61-.454 1-1.183 1-1.997v-.413c0-.165-.016-.329-.049-.49l-.335-1.68a1.807 1.807 0 0 0-.964-1.261.807.807 0 0 1-.381-.404l-.792-1.848A2.5 2.5 0 0 0 11.181 3H11V2a1 1 0 0 0-1-1H6ZM4.819 4h6.362a1.5 1.5 0 0 1 1.379.91l.792 1.847a1.8 1.8 0 0 0 .853.904c.222.112.381.32.43.564l.336 1.679c.02.097.029.195.029.294v.413a1.48 1.48 0 0 1-1.408 1.484c-1.555.07-3.786.155-5.592.155-1.806 0-4.037-.084-5.592-.155A1.479 1.479 0 0 1 1 10.611v-.413c0-.099.01-.197.03-.294l.335-1.68a.807.807 0 0 1 .43-.563c.383-.19.685-.511.853-.904l.792-1.848A1.5 1.5 0 0 1 4.82 4Z"/>
+        </svg></h1>
+<nav class="navbar navbar-expand-lg" style="background-color:rgb(237, 207, 87);">
+<div class="container-fluid">
+  <form>
+<a class="navbar-brand" href="#"></a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="navbar-nav">
+      
+    <a class="nav-link active" aria-current="page" href=""><input class="form-control me-2" type="date" placeholder="" aria-label="Search"></a>
+
+    <a class="nav-link active" href=""><input class="form-control me-2" type="time" placeholder="" aria-label="Search"></a>
+    <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="pick up location " aria-label="Search"></a>
+    <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="return place" aria-label="Search"></a>
+    <a class="nav-link active" href="{% url 'user:vehicleview' %}"><button class="btn btn-success" type="submit" >Search</button></a>
+    
+    
+  
+
+  </div>
+</div>
+
+</div>
+</form>
+</nav>
+
+
+
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4">
+  <a href="{% url 'user:vehicleview' %}"><div class="card" style="width: 18rem;height: 250px;">
+      <img src="{% static 'images/car1.jpg' %}" class="card-img-top"style="height:150px ;" alt="...">
+      <div class="card-body">
+        <p class="card-text"> <label for=""> model :</label>
+      <input type="text" name="" id=""></p></a>
+      </div>
+      </div>
+      </div>
+  
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+          <a href="{% url 'user:vehicleview' %}"><div class="card" style="width: 18rem; height: 250px;">
+              <img src="{% static 'images/car2.jpg' %}" class="card-img-top"style="height:150px ;" alt="...">
+              <div class="card-body">
+                <p class="card-text"><label for=""> model :</label>
+                  <input type="text" name="" id="">
+              </p></a>
+              </div>
+              </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                 <a href="{% url 'user:vehicleview' %}"> <div class="card" style="width: 18rem;height: 250px;">
+                      <img src="{% static 'images/car3.jpg' %}" class="card-img-top" style="height:155px ;" alt="...">
+                      <div class="card-body">
+                        <p class="card-text"><label for=""> model :</label>
+                          <input type="text" name="" id="">
+                      </p></a>
+                      </div>
+          
 </div>
 </div>
 
