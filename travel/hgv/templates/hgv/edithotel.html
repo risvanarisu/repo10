@@ -14,101 +14,76 @@ background-color: antiquewhite;
 
 </style>
 <div class="container">
-<div class="row">
-<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">User type</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="usertype">
-      <option value="">please select</option>
-      <option value="" id=>guides</option>
-      <option value="" id=>hotels/restuarents</option>
-    <option value="" id=>vehicles</option>     
-      </select>
-      </div> 
   <div class="row">
-    <div class="col">
-      <label for="exampleFormControlSelect1">Hotel name</label>
-      <input type="text" class="form-control" placeholder="">
-    </div>
-    <div class="col">
-      <label for="exampleFormControlSelect1">Place(optional)</label>
-      <input type="text" class="form-control" placeholder="">
-    </div>
+
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
     <div class="row">
       <div class="col">
-        <label for="exampleFormControlSelect1">Price/day</label>
-        <input type="text" class="form-control" placeholder="">
+        <label for="exampleFormControlSelect1">Hotel name</label>
+        <input type="text" value="{{hotel_data.hotel_name}}" name="_name" class="form-control" placeholder="">
       </div>
       <div class="col">
-        <label for="exampleFormControlSelect1">Star</label>
-        <input type="text" class="form-control" placeholder="">
+        <label for="exampleFormControlSelect1">Place</label>
+        <input type="text" value="{{hotel_data.place}}" name="pla_ce" class="form-control" placeholder="">
       </div>
-      </div>
-    <div class="row">
-      <div class="col">
-        <label for="exampleFormControlSelect1">vehicle name</label>
-        <input type="text" class="form-control" placeholder="">
-      </div>
-      <div class="col">
-        <label for="exampleFormControlSelect1">vehicle id</label>
-        <input type="text" class="form-control" placeholder="">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label for="exampleFormControlSelect1">Price/day</label>
-        <input type="text" class="form-control" placeholder="">
-      </div>
-      <div class="col">
-        <label for="exampleFormControlSelect1">place</label>
-        <input type="text" class="form-control" placeholder="">
-      </div>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">features </label>
-        <textarea class="form-control"placeholder="" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <div class="row">
+        <div class="col">
+          <label for="exampleFormControlSelect1">Price/day</label>
+          <input type="text" name="pri_ce" value="{{hotel_data.price}}" class="form-control" placeholder="">
         </div>
-  <div class="row">
-    <div class="col">
-      <label for="exampleFormControlSelect1">First name</label>
-      <input type="text" class="form-control" placeholder="First name">
-    </div>
-    <div class="col">
-      <label for="exampleFormControlSelect1">Last name</label>
-      <input type="text" class="form-control" placeholder="Last name">
-    </div>
-    </div>
-    <div class="form-group">
-    <label for="exampleFormControlTextarea1">Address </label>
-    <textarea class="form-control"placeholder="address" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-    <label for="exampleFormControlSelect1">Country</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-    <option>india</option>
-    <option>select your country</option>
-    </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">contact number </label>
-      <input type="text" name="" class="form-control" id="" placeholder="enter number">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Email</label>
-        <input type="email" name="" id=""class="form-control" placeholder="enter email id">
+        <div class="col">
+          <label for="exampleFormControlSelect1">Star</label>
+          <input type="text" name="sta_r" value="{{hotel_data.star}}" class="form-control" placeholder="">
         </div>
-        
+        </div>
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Uplode photos</label>
-          <input type="file" name="" id=""class="form-control" placeholder="enter email id">
+          <label for="exampleFormControlTextarea1">Address</label>
+          <textarea name="add_ress" class="form-control"placeholder="address" id="exampleFormControlTextarea1" rows="3">{{hotel_data.Address}}</textarea>
           </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">contact number</label>
+            <input type="text" name="number" value="{{hotel_data.contact}}" class="form-control" id="" placeholder="enter number">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Email</label>
+              <input type="email" name="emai_l" value="{{hotel_data.email}}" id=""class="form-control" placeholder="enter email id">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Features</label>
+                <textarea class="form-control"  placeholder="features"name="feature_s" id="exampleFormControlTextarea1" rows="3">{{hotel_data.features}}</textarea>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="exampleFormControlSelect1" id="label3">Bank account number</label>
+                    <input type="text" value="{{hotel_data.account_no}}" id="text2" class="form-control" name="accoun_tno" placeholder="account no" name="_account_no">
+                    
+                  </div>
+                  <div class="col">
+                    <label for="exampleFormControlSelect1" id="label4">Ifsc code</label>
+                    <input type="text"id="text3" value="{{hotel_data.ifsc_code}}" name="ifsc_" class="form-control"  id=""placeholder="ifsc"name="_ifsc_code">
+                    
+                  </div>
+                  <div class="col">
+                    <label for="exampleFormControlSelect1" id="label5">Bank name</label>
+                    <input type="text" value="{{hotel_data.bank_name}}" name="ban_k" class="form-control"id="text4" placeholder="branch name"name="_branch_name">
+                    
+                  </div>
+                </div>
           
-          <a href=""><button type="button" id="button1" class="btn btn-success" >Edit</button></a>
-          <a href=""><button type="button" id="button2" class="btn btn-success" >Delete</button></a>
-          <a href="{% url 'hgv:hotelhome' %}"><button type="button" id="button3" class="btn btn-success" >Go back</button></a>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Uplode photos</label>
+            <input type="file" value="{{hotel_data.hotel_image}}" name="image" id="" class="form-control" placeholder="enter email id">
+            </div>
+    
+    
+          <a href=""><button id="button1" class="btn btn-success" >Update</button></a>
+          
+          <a href="{% url 'hgv:hotelhome' %}"><button  id="button3" class="btn btn-success" >Go back</button></a>
       
                   
-  
+          </form>
 
 
 

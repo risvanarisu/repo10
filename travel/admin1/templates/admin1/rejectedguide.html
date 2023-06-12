@@ -1,0 +1,63 @@
+{% extends 'admin1/master4.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+  .container{
+    background-color: antiquewhite;
+  }
+  .display-6{
+    color: rgb(241, 14, 215);
+  }
+</style>
+<div class="container">
+    <div class="row">
+
+ 
+
+<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    <h1 class="display-6">Rejected Requests</h1>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">guide name & <br>id </th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Bank details<br> Account no <br>Ifsc</th>
+          <th scope="col">Request date</th>
+          <th scope="col">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for guide in guides %}
+        <form action="" method="post">
+          {% csrf_token %}
+        <tr>
+          <td>{{guide.companyname}} <br> {{guide.regid}}</td>
+          <td>{{guide.email}}</td>
+          <td>{{guide.address}}</td>
+          <td>{{guide.mobile}}</td>
+          <td>{{guide.account_number}}<br>{{guide.ifsc_code}}</td>
+          <td>{{guide.request_date|date:'Y-m-d'}} </td>
+          <td>{{guide.status}} </td>
+        </tr></form>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

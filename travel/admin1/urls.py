@@ -9,6 +9,11 @@ urlpatterns = [
     path('hotelslist',views.gethotelslist,name="hotelslist"),
     path('vehicleslist',views.getvehicleslist,name="vehicleslist"),
     path('viewbookings',views.getviewbookings,name="viewbookings"),
-
+    path('activeguides',views.getactiveguides,name="activeguides"),
+    path('rejectedguide',views.getrejectedguide,name="rejectedguide"),
+    path('activehotels',views.getactivehotels,name="activehotels"),
+    path('rejectedhotels',views.getrejectedhotels,name="rejectedhotels"),
+    path('activevehicles',views.getactivevehicles,name="activevehicles"),
+    path('rejectedvehicles',views.getrejectedvehicles,name="rejectedvehicles"),
 
 ]

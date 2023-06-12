@@ -14,153 +14,45 @@
 
 <div class="container">
     <div class="row">
-      <button type="button" class="btn btn-success">
-        Log Out
-      </button>
+      <div class="col-md-9"></div>
+      <div class="col-md-3">
+        <a href="{% url 'admin1:activevehicles' %}">  <button class="btn btn-success">Accepted list</button></a>
+      <a href="{% url 'admin1:rejectedvehicles' %}"><button  class="btn btn-danger">Rejected list</button></a>
+      </div>
       <h1 class="display-6">Requests</h1>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <table class="table table-dark">
                 <thead>
                   <tr>
-                    <th scope="col">Company name <br>& Id </th>
-                    <th scope="col">vehicle id& <br> model </th>
+                    <th scope="col">Company name <br> company_id</th>
                     <th scope="col">Email</th>
                     <th scope="col">Address</th>
                     <th scope="col">Mobile</th>
-                    <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
+                    <th scope="col">Bank details <br> Account no <br>Ifsc</th>
                     <th scope="col">Request date</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
+                  {% for vehicle in vehicles %}
+                  <form action="" method="post">
+                    {% csrf_token %}
                   <tr>
-                    <td>Risha.pvt.ltd</td>
-                    <td>656 benz</td>
-                    <td>risha@gmail.com</td>
-                    <td>koyilandy</td>
-                    <td>64743383743</td>
-                    <td>risha <br>637182173812918 <br> 67363</td>
-                    <td>march 10,2021 <br>
-                    9:53 pm
-                    </td>
-                    <td><button type="button" class="btn btn-info">Accept</button>
-                        <button type="button" class="btn btn-info">Decline</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Risha.pvt.ltd</td>
-                    <td>656 benz</td>
-                    <td>risha@gmail.com</td>
-                    <td>koyilandy</td>
-                    <td>64743383743</td>
-                    <td>risha <br>637182173812918 <br> 67363</td>
-                    <td>march 10,2021 <br>
-                    9:53 pm
-                    </td>
-                    <td><button type="button" class="btn btn-info">Accept</button>
-                        <button type="button" class="btn btn-info">Decline</button>
-                    </td>
-                  </tr>
-                  
-                </tbody>
-              </table>
-
-
-
-
-        </div>
-        <h1 class="display-6">Accepted Requests</h1>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <table class="table table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">Company name <br>& Id </th>
-                    <th scope="col">vehicle id& <br> model </th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Mobile</th>
-                    <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
-                    <th scope="col">Request date</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Risha.pvt.ltd</td>
-                    <td>656 benz</td>
-                    <td>risha@gmail.com</td>
-                    <td>koyilandy</td>
-                    <td>64743383743</td>
-                    <td>risha <br>637182173812918 <br> 67363</td>
-                    <td>march 10,2021 <br>
-                    9:53 pm
-                    </td>
-                    <td>Active</td>
+                    <td>{{vehicle.companyname}} <br>{{vehicle.regid}}</td>
+                    <td>{{vehicle.email}}</td>
+                    <td>{{vehicle.address}}</td>
+                    <td>{{vehicle.mobile}}</td>
+                    <td>{{vehicle.account_number}}<br>{{vehicle.ifsc_code}}</td>
+                    <td>{{hotel.request_date|date:'Y-m-d'}} <br>
                     
-                  </tr>
-                  <tr>
-                    <td>Risha.pvt.ltd</td>
-                    <td>656 benz</td>
-                    <td>risha@gmail.com</td>
-                    <td>koyilandy</td>
-                    <td>64743383743</td>
-                    <td>risha <br>637182173812918 <br> 67363</td>
-                    <td>march 10,2021 <br>
-                    9:53 pm
                     </td>
-                    <td>Active
-                    </td>
-                  </tr>
-                  
-                </tbody>
-              </table>
-
-
-
-
-        </div>
-        <h1 class="display-6">Rejected Requests</h1>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <table class="table table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">Company name <br>& Id </th>
-                    <th scope="col">vehicle id& <br> model </th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Mobile</th>
-                    <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
-                    <th scope="col">Request date</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Risha.pvt.ltd</td>
-                    <td>656 benz</td>
-                    <td>risha@gmail.com</td>
-                    <td>koyilandy</td>
-                    <td>64743383743</td>
-                    <td>risha <br>637182173812918 <br> 67363</td>
-                    <td>march 10,2021 <br>
-                    9:53 pm
-                    </td>
-                    <td>Rejected</td>
                     
-                  </tr>
-                  <tr>
-                    <td>Risha.pvt.ltd</td>
-                    <td>656 benz</td>
-                    <td>risha@gmail.com</td>
-                    <td>koyilandy</td>
-                    <td>64743383743</td>
-                    <td>risha <br>637182173812918 <br> 67363</td>
-                    <td>march 10,2021 <br>
-                    9:53 pm
-                    </td>
-                    <td>Rejected
-                    </td>
-                  </tr>
+                  
+                    <td><button name="approve" class="btn btn-info">Accept</button>
+                      <button  name="reject" class="btn btn-info">Reject</button></td>
+                    <td><input type="hidden" name="vehicle_id" value="{{vehicle.id}}"></td>
+                  </tr></form>
+                  {% endfor %}
                   
                 </tbody>
               </table>
@@ -169,6 +61,8 @@
 
 
         </div>
+        
+        
     </div>
 </div>
 

@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/1.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <style>
       a{
           color: black;
@@ -29,62 +30,131 @@
 
 <div class="container" style="background-color: rgb(196, 92, 178);">
     <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <nav class="navbar" style="background-color: rgb(30, 81, 106);">
+          <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1"><h1 style=" font-family: Verdana, Geneva, Tahoma, sans-serif;">TRAVEL WITH ME</h1></span>
+            <a  class="navbar-brand" href="#"></a>
+            <a  class="navbar-brand" href="#"></a>
+            <a class="navbar-brand" href="#"></a>
+          </div>
+        </nav> 
+      
+      
+      
+      </div>   
 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 <h2 style="color: rgb(151, 33, 117);">sign up</h2>
-<form>
-     
+<form action="" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">User type</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="usertype">
+      <option value="">please select</option>
+      <option value="user" id="use_r">user</option>
+      <option value="guides" id="guide_s">guides</option>
+      <option value="hotels" id="hotel_s">hotels</option>
+    <option value="vehicles" id="vehicle_s">vehicles</option>
+       
+      </select>
+      </div> 
+      <div id="form2" style="display:none;">
+        <div  class="form-group" >
+         <label for="exampleFormControlSelect1" id="label1">hotel/vehicle/guide company name</label>
+         <input type="text" name="name" class="form-control" placeholder="company name" id="text1">
+         <label for=""  id="error1"></label>
+       </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1" id="label2">hotel/vehicle/guide registration id </label>
+        <input type="text"  name="id" id="text2" class="form-control" placeholder="registration id" style="width: 100%;">
+        <label for="" id="error2"></label>
+      </div> 
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1" id="label3">Registration year </label>
+        <input type="date" name="year" id="date1" class="form-control" style="width: 100%;">
+        <label for=""id="error3"></label>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="exampleFormControlSelect1" id="label4">Bank account number</label>
+            <input type="text" class="form-control" id="text3" placeholder="account no" name="account_no">
+            <label for=""id="error4"></label>
+          </div>
+          <div class="col">
+            <label for="exampleFormControlSelect1" id="label5">Ifsc code</label>
+            <input type="text" class="form-control" id="text4" placeholder="ifsc"name="ifsc_code">
+            <label for=""id="error5"></label>
+          </div>
+          <div class="col">
+            <label for="exampleFormControlSelect1" id="label6"> Bank name </label>
+            <input type="text" class="form-control"id="text5" placeholder="branch name"name="bank_name">
+            <label for=""id="error6"></label>
+          </div>
+        </div>
+      </div> 
 
 <div class="row">
-<div class="col">
-  <label for="exampleFormControlSelect1">First name</label>
-  <input type="text" class="form-control" placeholder="First name">
+<div class="col form1 ">
+  <label for="exampleFormControlSelect1" id="label7">First name</label>
+  <input type="text" class="form-control" id="text6" placeholder="First name" name="first_name">
+  <label for=""id="error7"></label>
 </div>
-<div class="col">
-  <label for="exampleFormControlSelect1">Last name(optional)</label>
-  <input type="text" class="form-control" placeholder="Last name">
+<div class="col form1">
+  <label for="exampleFormControlSelect1" id="label8">Last name(optional)</label>
+  <input type="text" class="form-control" id="text7" placeholder="Last name" name="last_name">
+  <label for=""id="error8"></label>
 </div>
 </div>
-<div class="form-group">
-<label for="exampleFormControlSelect1">gender :</label>
-<input type="radio" name="gen" id=""> male <input type="radio" name="gen" id=""> female
+<div class="form-group form1">
+<label for="exampleFormControlSelect1" id="label9">gender :</label>
+<input type="radio" name="gen"  value="male" id="radio1"> male <input type="radio" value="female" name="gen" id="radio2"> female
+<br><label for=""id="error9"></label>
 </div>
-<div class="form-group">
-<label for="exampleFormControlTextarea1">Date of birth </label>
-<input type="date" name="" id=""class="form-control" style="width: 100%;">
+<div class="form-group form1">
+<label for="exampleFormControlTextarea1" id="label10">Date of birth </label>
+<input type="date" name="dob" id="date2" class="form-control" style="width: 100%;">
+<label for=""id="error10"></label>
 </div>
 
 
 <div class="form-group">
-<label for="exampleFormControlTextarea1">Address </label>
-<textarea class="form-control"placeholder="address" id="exampleFormControlTextarea1" rows="3"></textarea>
+<label for="exampleFormControlTextarea1" id="label11">Address </label>
+<textarea class="form-control"placeholder="address"name="addre_ss" id="textarea1" rows="3"></textarea>
+<label for=""id="error11"></label>
 </div>
 <div class="form-group">
-<label for="exampleFormControlSelect1">Country</label>
-<select class="form-control" id="exampleFormControlSelect1">
+<label for="exampleFormControlSelect1" id="label12">Country</label>
+<select class="form-control" name="_country" id="select1">
 <option>india</option>
 <option>select your country</option>
 </select>
+<label for="" id="error12"></label>
 </div>
 <div class="form-group">
-  <label for="exampleFormControlTextarea1">Mobile number </label>
-  <input type="text" name="" class="form-control" id="" placeholder="enter mobile number">
-  </div>
+  <label for="exampleFormControlTextarea1" id="label13">Mobile number </label>
+  <input type="text" name="mobnum" class="form-control" id="text8" placeholder="enter mobile number">
+  <label for="" id="error13"></label>
+</div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Email </label>
-    <input type="email" name="" id=""class="form-control" placeholder="enter email id">
-    </div>
+    <label for="exampleFormControlTextarea1" id="label14">Email </label>
+    <input type="email" name="emai_l" id="email1" class="form-control" placeholder="enter email id">
+    <label for="" id="error14"></label>
+  </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Password  </label>
-      <input type="password" name="" id=""class="form-control" placeholder="password">
-      </div>
+      <label for="exampleFormControlTextarea1" id="label15">Password  </label>
+      <input type="password" name="pass_word" id="password1"class="form-control" placeholder="password">
+      <label for=""id="error15"></label>
+    </div>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1"> Confirm Password  </label>
-        <input type="password" name="" id=""class="form-control" placeholder="confirm password">
-        </div>
-        <button type="button" class="btn btn-success">Sign Up</button>
+        <label for="exampleFormControlTextarea1"id="label16"> Confirm Password  </label>
+        <input type="password" name="pass_word2" id="password2" class="form-control" placeholder="confirm password">
+        <label for=""id="error16"></label>
+      </div>
+<button id ="button1" onclick="return signup()" class="btn btn-success"> Sign Up </button>
 
 
 </form>
+<p>{{message}}</p>
 </div>
 </div>
 </div>
@@ -113,6 +183,310 @@
 
   </div>
 </div>
+
+<script>
+
+$('#exampleFormControlSelect1').change(function(){
+  selection = $(this).val();
+  switch(selection)
+  {
+      case 'user':
+          $('#form2').hide();
+          $('.form1').show();
+          break;
+      case 'guides':
+          $('.form1').hide();
+          $('#form2').show();
+          break;
+      case 'hotels':
+          $('.form1').hide();
+          $('#form2').show();
+          break;
+      case 'vehicles':
+          $('.form1').hide();
+          $('#form2').show();
+          break;
+      
+  }
+  });
+
+  // function signup(){
+  //       var company_name=document.getElementById('text1').value;
+  //       console.log(company_name);
+  //       var reg_id=document.getElementById('text2').value;
+  //       console.log(reg_id);
+  //       var reg_year=document.getElementById('date1').value;
+  //       console.log(reg_year);
+  //       var account_number=document.getElementById('text3').value;
+  //       console.log(account_number);
+        
+  //       var ifsc_code=document.getElementById('text4').value;
+  //       console.log(ifsc_code);
+  //       var bank_name=document.getElementById('text5').value;
+  //       console.log(bank_name);
+  //       var first_name=document.getElementById('text6').value;
+  //       console.log(first_name);
+  //       var dateofbirth=document.getElementById('date2').value;
+  //       console.log(dateofbirth);
+  //       var address=document.getElementById('textarea1').value;
+  //       console.log(address);
+  //       var country=document.getElementById('select1').value;
+  //       console.log(country);
+  //       var mobilenumber=document.getElementById('text8').value;
+  //       console.log(mobilenumber);
+  //       var email=document.getElementById('email1').value;
+  //       console.log(email);
+  //       var password=document.getElementById('password1').value;
+  //       console.log(password);
+  //       var confirmpassword=document.getElementById('password2').value;
+  //       console.log(confirmpassword);  
+  //       const pwdFilter = /^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
+  //       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //       if(company_name==""){ 
+  //         error1.innerHTML = "please enter company_name" ;
+  //           error1.style.display = "block";
+  //           error1.style.color = "red";
+  //           text1.style.borderColor = "red";
+  //           flag=0;
+  //        }
+  //         else if(company_name!=company_name.toUpperCase()){
+  //        error1.innerHTML = "please enter company_name in uppercase" ;
+  //           error1.style.display = "block";
+  //           error1.style.color = "red";
+  //           text1.style.borderColor = "red";
+  //           flag=0;
+  //        }
+         
+  //        else{
+  //            error1.style.display = "none";
+  //            text1.style.borderColor = "black";
+  //       flag=1;
+  //         } 
+  //         if(reg_id==""){ 
+  //         error2.innerHTML = "please enter registration id" ;
+  //           error2.style.display = "block";
+  //           error2.style.color = "red";
+  //           text2.style.borderColor = "red";
+  //           flag=0;
+  //        }  
+  //        else{
+  //            error2.style.display = "none";
+  //            text2.style.borderColor = "black";
+  //       flag=1;
+  //         }   
+  //         if(account_number==""){ 
+  //         error4.innerHTML = "please enter Account number" ;
+  //           error4.style.display = "block";
+  //           error4.style.color = "red";
+  //           text3.style.borderColor = "red";
+  //           flag=0;
+  //        }  
+  //        else{
+  //            error4.style.display = "none";
+  //            text3.style.borderColor = "black";
+  //       flag=1;
+  //         }   
+  //         if(reg_year==""){ 
+  //         error3.innerHTML = "please enter registration year" ;
+  //           error3.style.display = "block";
+  //           error3.style.color = "red";
+  //           date1.style.borderColor = "red";
+  //           flag=0;
+  //        }  
+  //        else{
+  //            error3.style.display = "none";
+  //           date1.style.borderColor = "black";
+  //       flag=1;
+  //         }   
+  //         if(ifsc_code==""){ 
+  //         error5.innerHTML = "please enter ifsc code" ;
+  //           error5.style.display = "block";
+  //           error5.style.color = "red";
+  //           text4.style.borderColor = "red";
+  //           flag=0;
+  //        }  
+  //        else{
+  //            error5.style.display = "none";
+  //            text4.style.borderColor = "black";
+  //       flag=1;
+  //         }   
+  //         if(bank_name==""){ 
+  //         error6.innerHTML = "please enter bank name" ;
+  //           error6.style.display = "block";
+  //           error6.style.color = "red";
+  //           text5.style.borderColor = "red";
+  //           flag=0;
+  //        }  
+  //        else{
+  //            error6.style.display = "none";
+  //            text5.style.borderColor = "black";
+  //       flag=1;
+  //         }   
+  //         if(first_name==""){ 
+  //         error7.innerHTML = "please enter name" ;
+  //           error7.style.display = "block";
+  //           error7.style.color = "red";
+  //           text6.style.borderColor = "red";
+  //           flag=0;
+  //        } 
+  //        else if(first_name!=first_name.toUpperCase()){
+  //        error7.innerHTML = "please enter name in uppercase" ;
+  //           error7.style.display = "block";
+  //           error7.style.color = "red";
+  //           text6.style.borderColor = "red";
+  //           flag=0;
+  //        } 
+  //        else{
+  //            error7.style.display = "none";
+  //            text6.style.borderColor = "black";
+  //       flag=1;
+  //         }   
+  //          if(dateofbirth==""){
+  //        error10.innerHTML = "please enter date of birth" ;
+  //           error10.style.display = "block";
+  //           error10.style.color = "red";
+  //           date2.style.borderColor = "red";
+  //           flag=0;
+  //        }
+  //        else{
+  //            error10.style.display = "none";
+  //            date2.style.borderColor = "black";
+  //       flag=1;
+  //         }   
+  //         if(country==""){
+  //        error12.innerHTML = "please enter country" ;
+  //           error12.style.display = "block";
+  //           error12.style.color = "red";
+  //           select1.style.borderColor = "red";
+  //           flag=0;
+  //        }
+         
+  //        else{
+  //            error12.style.display = "none";
+  //            select1.style.borderColor = "black";
+  //       flag=1;
+  //         }   
+  //         if(mobilenumber==""){
+  //        error13.innerHTML = "please enter mobile number" ;
+  //           error13.style.display = "block";
+  //           error13.style.color = "red";
+  //           text8.style.borderColor = "red";
+  //           flag=0;
+  //        }
+         
+  //        else{
+  //            error13.style.display = "none";
+  //            text8.style.borderColor = "black";
+  //       flag=1;
+  //         }
+          
+  //         if(mobilenumber.length!=10){
+  //           error13.innerHTML = "pls enter 10 digit number";
+  //           error13.style.display = "block";
+  //           error13.style.color = "red";
+  //           text8.style.borderColor = "red";
+  //           flag=0;
+          
+  //          }
+  //          else{
+  //             error13.style.display = "none";
+  //            text8.style.borderColor = "black";
+  //            flag=1;
+  //          }
+  //         if(email==""){
+  //        error14.innerHTML = "please enter email id" ;
+  //           error14.style.display = "block";
+  //           error14.style.color = "red";
+  //           email1.style.borderColor = "red";
+  //           flag=0;
+  //        }
+         
+  //        else{
+  //           error14.style.display = "none";
+  //            email1.style.borderColor = "black";
+  //       flag=1;
+  //         } 
+  //         if (!mailformat.test(email)) {
+  //           error14.innerHTML ="email is invalid";
+  //           error14.style.display = "block";
+  //           error14.style.color = "red";
+  //           email1.style.borderColor = "red";
+  //           flag=0;
+  //      } 
+       
+  //      else     
+  //           {
+  //             error14.style.display = "none";
+  //             email1.style.borderColor = "black";
+  //             flag=1;
+  //          }  
+  //         if(password!=""){
+  //      if (!pwdFilter.test(password)) {
+  //           error15.innerHTML ="please enter a valid password";
+  //           error15.style.display = "block";
+  //           error15.style.color = "red";
+  //           password1.style.borderColor = "red";
+  //           flag=0;
+  //      } 
+       
+  //      else     
+  //           {
+  //             error15.style.display = "none";
+  //             password1.style.borderColor = "black";
+  //             flag=1;
+  //          }
+  //         }
+  //         else
+  //         {
+  //           error15.innerHTML ="please enter password";
+  //           error15.style.display = "block";
+  //           error15.style.color = "red";
+  //           password1.style.borderColor = "red";
+  //           flag=0;
+
+  //         }  
+  //         if(confirmpassword==""){
+  //         error16.innerHTML ="pls confirm your password";
+  //           error16.style.display = "block";
+  //           error16.style.color = "red";
+  //           password2.style.borderColor = "red";
+  //           flag=0;
+  //          }
+  //          else if(confirmpassword!=password){
+  //           error16.innerHTML = "password is incorrect";
+  //           error16.style.display = "block";
+  //           error16.style.color = "red";
+  //           password2.style.borderColor = "red";
+  //           flag=0;
+  //          }
+  //          else{
+  //             error16.style.display = "none";
+  //            password2.style.borderColor = "black";
+  //            flag=1;
+        
+  //          }
+
+
+
+
+
+
+  //         if(flag==1){
+  //           return true;
+  //         }
+  //         else{
+  //           return false;
+  //         }
+
+  // }
+
+
+
+
+ </script> 
+
+
+
 
 
 

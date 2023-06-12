@@ -15,21 +15,43 @@
 
 <div class="container" style="background-color: rgb(186, 90, 186);">
     <div class="row">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="col">
-                <div class="card">
-                  <img src="{% static 'images/guide1.jpg' %}" class="card-img-top rounded-4" alt="..."height="250px" width="200px">
-                  <div class="card-body rounded-4">
-                    <h5 class="card-title">PETER</h5>
-                    <p class="card-text"> <label for="">price :</label><input type="text" name="" id="" ><br><br>
-                      <label for=""> rating:</label><input type="text" name="" id=""><br><br>
-                      <label for=""> email :</label><input type="text" name="" id=""><br><br>
-                      <label for=""> Phone :</label><input type="text" name="" id=""><br><br>
-                  
-                  
-                  </div>
-                </div>
-              </div>    
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <img src="/media/{{guide_data.gui_image}}" alt="" height="300px" width="250px">
+
+        <br>
+              <div class="form-floating mb-3">
+                <input type="text" value="{{guide_data.first_name}} {{guide_data.second_name}} " class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput"> Name</label>
+              </div>
+              <br>
+              <div class="form-floating mb-3">
+                <input type="text"value="{{guide_data.price}}" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput"> price/day</label>
+              </div>
+              <br>
+              
+              <div class="form-floating mb-3">
+                <input type="text" value="{{guide_data.contact}}" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput">contacts </label>
+              </div>
+              <br>
+              
+              <div class="form-floating mb-3">
+                <input type="email" value="{{guide_data.email}}" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput"> email</label>
+              </div>
+              <br>
+              <div class="form-floating mb-3">
+                <textarea class="form-control" name="" id="" cols="30" rows="10">{{guide_data.Address}} {{guide_data.country}} </textarea>
+                <label for="floatingInput"> Address</label>
+              </div>
+
+              <button class="btn btn-lg btn-warning">Booking</button>
+
+            
+
+        
+      
               <h1 class="display-6">Reviews</h1>
     
               <div class="row">

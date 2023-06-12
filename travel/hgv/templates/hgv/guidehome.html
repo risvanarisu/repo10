@@ -5,9 +5,9 @@
 {% load static %}
 <style>
 .side{
-height: 700px;
-background-color: black;
-color: rgb(206, 80, 156);
+height: 100%;
+background-color: rgba(30, 29, 29, 0.979);
+color: rgb(4, 72, 31);
 font-size: x-large;
 font-family: 'Times New Roman', Times, serif;
 }
@@ -33,19 +33,10 @@ font-family: 'Times New Roman', Times, serif;
         <li class="nav-item">
             <a class="nav-link" href="{% url 'hgv:profile1' %}">Profile</a>
           </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Add new
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'hgv:edithotel' %}">Edit details</a></li>
-            <li><a class="dropdown-item" href="{% url 'hgv:addnewhotel' %}">Add new</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="{% url 'hgv:edithotel' %}">Delete</a></li>
-          </ul>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'hgv:addnewguides' %}">Add new</a>
+          </li>
+        
         
       </ul>
 </div>

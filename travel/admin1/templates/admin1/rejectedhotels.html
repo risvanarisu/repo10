@@ -1,0 +1,66 @@
+{% extends 'admin1/master4.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<style>
+  .container{
+    background-color: antiquewhite;
+  }
+  .display-6{
+    color: rgb(241, 14, 215);
+  }
+</style>
+<div class="container">
+    <div class="row">
+        <h1 class="display-6"> Rejected Requests</h1>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">hotel name & <br>registration Id </th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Bank details<br> Account no <br>Ifsc</th>
+                    <th scope="col">Request date</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for hotel in hotels %}
+                  <form action="" method="post">
+                    {% csrf_token %}
+                  <tr>
+                    <td>{{hotel.companyname}} <br> {{hotel.regid}}</td>
+                    <td>{{hotel.email}}</td>
+                    <td>{{hotel.address}}</td>
+                    <td>{{hotel.mobile}}</td>
+                    <td>{{hotel.account_number}}<br>{{hotel.ifsc_code}}</td>
+                    <td>{{hotel.request_date|date:'Y-m-d'}}</td>
+                      <td>{{hotel.status}} </td>
+                    </tr>
+                  </form>
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+{% endblock %}
+

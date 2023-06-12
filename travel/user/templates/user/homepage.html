@@ -65,13 +65,26 @@ h1{
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <label for=""> User Name:</label><input type="text" name="" id="text1"><br><br>
-          
-          <label for="">Password :</label><input type="password" name="" id="pass1"><br><br>
+          <div class="btn-group">
+            <form action="{% url 'user:login' %}" method="post">
+              {% csrf_token %}
+            <button  id ="but3" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Select user type
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><button class="dropdown-item" value="user" type="button">User</button></li>
+              <li><button class="dropdown-item" value="guides" type="button">Guides</button></li>
+              <li><button class="dropdown-item" value="hotels" type="button">Hotels</button></li>
+              <li><button class="dropdown-item" value="vehicles" type="button">vehicles</button></li>
+            </ul>
+          </div><br><br>
+          <label for=""> User Name:</label><input type="text" name="user_name" id="text1"><br><br>
+          <label for="">Password :</label><input type="password" name="pass_word" id="pass1"><br><br>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Log In</button>
-          <button type="button" class="btn btn-warning">cancel</button>
+          <button  class="btn btn-warning" data-bs-dismiss="modal">Log In</button>
+          <button  class="btn btn-warning">cancel</button>
+        </form> 
         </div>
       </div>
     </div>

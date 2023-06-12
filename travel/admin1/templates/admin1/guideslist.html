@@ -15,152 +15,51 @@
 
 <div class="container">
     <div class="row">
-      <button type="button" class="btn btn-success">
-        Log Out
-      </button>
+      <div class="col-md-9"></div>
+      <div class="col-md-3">
+        <a href="{% url 'admin1:activeguides' %}">  <button class="btn btn-success">Accepted list</button></a>
+      <a href="{% url 'admin1:rejectedguide' %}"><button  class="btn btn-danger">Rejected list</button></a>
+      </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
           <h1 class="display-6">Requests</h1>
             <table class="table table-dark">
                 <thead>
                   <tr>
-                    <th scope="col">guide name </th>
+                    <th scope="col">guide name &<br> id </th>
                     <th scope="col">Email</th>
                     <th scope="col">Address</th>
                     <th scope="col">Mobile</th>
-                    <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
+                    <th scope="col">Bank details<br> Account no <br>Ifsc</th>
                     <th scope="col">Request date</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
+                  {% for guide in guides %}
+                  <form action="" method="post">
+                    {% csrf_token %}
                   <tr>
-                    <td>ryan</td>
-                    <td>risha@gmail.com</td>
-                    <td>koyilandy</td>
-                    <td>64743383743</td>
-                    <td>risha <br>637182173812918 <br> 67363</td>
-                    <td>march 10,2021 <br>
-                    9:53 pm
+                    <td>{{guide.companyname}} <br> {{guide.regid}}</td>
+                    <td>{{guide.email}}</td>
+                    <td>{{guide.address}}</td>
+                    <td>{{guide.mobile}}</td>
+                    <td>{{guide.account_number}}<br>{{guide.ifsc_code}}</td>
+                    <td>{{guide.request_date|date:'Y-m-d'}} </td>
+                    
+                   
+                    <td><button name="approve" class="btn btn-info">Accept</button>
+                        <button  name="reject" class="btn btn-info">Reject</button>
                     </td>
-                    <td><button type="button" class="btn btn-info">Accept</button>
-                        <button type="button" class="btn btn-info">Reject</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>peter</td>
-                    <td>risha@gmail.com</td>
-                    <td>koyilandy</td>
-                    <td>64743383743</td>
-                    <td>risha <br>637182173812918 <br> 67363</td>
-                    <td>march 10,2021 <br>
-                    9:53 pm
-                    </td>
-                    <td><button type="button" class="btn btn-info">Accept</button>
-                        <button type="button" class="btn btn-info">Reject</button>
-                    </td>
-                  </tr>
+                    <td><input type="hidden" name="guide_id" value="{{guide.id}}"></td>
+                  </tr></form>
+                  {% endfor %}
+                  
                   
                 </tbody>
               </table>
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-          <h1 class="display-6">Accepted Requests</h1>
-          <table class="table table-dark">
-            <thead>
-              <tr>
-                <th scope="col">guide name </th>
-                <th scope="col">Email</th>
-                <th scope="col">Address</th>
-                <th scope="col">Mobile</th>
-                <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
-                <th scope="col">Request date</th>
-                <th scope="col">status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>ryan</td>
-                <td>risha@gmail.com</td>
-                <td>koyilandy</td>
-                <td>64743383743</td>
-                <td>risha <br>637182173812918 <br> 67363</td>
-                <td>march 10,2021 <br>
-                9:53 pm
-                </td>
-                <td>Active</td>
-                
-              </tr>
-              <tr>
-                <td>peter</td>
-                <td>risha@gmail.com</td>
-                <td>koyilandy</td>
-                <td>64743383743</td>
-                <td>risha <br>637182173812918 <br> 67363</td>
-                <td>march 10,2021 <br>
-                9:53 pm
-                </td>
-                <td>Active</td>
-              
-              </tr>
-              
-            </tbody>
-          </table>
-  </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-        <h1 class="display-6">Rejected Requests</h1>
-        <table class="table table-dark">
-          <thead>
-            <tr>
-              <th scope="col">guide name </th>
-              <th scope="col">Email</th>
-              <th scope="col">Address</th>
-              <th scope="col">Mobile</th>
-              <th scope="col">Bank details <br>Holder name <br> Account no <br>Ifsc</th>
-              <th scope="col">Request date</th>
-              <th scope="col">status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ryan</td>
-              <td>risha@gmail.com</td>
-              <td>koyilandy</td>
-              <td>64743383743</td>
-              <td>risha <br>637182173812918 <br> 67363</td>
-              <td>march 10,2021 <br>
-              9:53 pm
-              </td>
-              <td>Rejected</td>
-              
-            </tr>
-            <tr>
-              <td>peter</td>
-              <td>risha@gmail.com</td>
-              <td>koyilandy</td>
-              <td>64743383743</td>
-              <td>risha <br>637182173812918 <br> 67363</td>
-              <td>march 10,2021 <br>
-              9:53 pm
-              </td>
-              <td>Rejected</td>
-            
-            </tr>
-            
-          </tbody>
-        </table>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
+        
+        
 
 
 

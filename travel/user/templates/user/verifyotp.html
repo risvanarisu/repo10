@@ -1,0 +1,31 @@
+{% extends 'user/master.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+    .container{
+        background-color: rgb(191, 132, 192);
+    }
+</style>
+
+
+
+<div class="container">
+    <div class="row">
+
+   
+<form action="" method="post">
+    {% csrf_token %}
+    <h1>otp verification</h1>
+<label for="">please enter your otp :</label>
+<input type="text" name="o_tp" id="">
+<button>verify otp</button>
+</form>
+<p>{{message}}</p>
+</div>
+</div>
+
+
+
+{% endblock %}

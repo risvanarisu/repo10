@@ -20,94 +20,70 @@ padding-right: 40%;
 <div class="container">
 <div class="row">
 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">User type</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="usertype">
-      <option value="">please select</option>
-      <option value="" id=>guides</option>
-      <option value="" id=>hotels/restuarents</option>
-    <option value="" id=>vehicles</option>     
-      </select>
-      </div> 
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
   <div class="row">
     <div class="col">
       <label for="exampleFormControlSelect1">Hotel name</label>
-      <input type="text" class="form-control" placeholder="">
+      <input type="text" name="_name" class="form-control" placeholder="">
     </div>
     <div class="col">
       <label for="exampleFormControlSelect1">Place(optional)</label>
-      <input type="text" class="form-control" placeholder="">
+      <input type="text" name="pla_ce" class="form-control" placeholder="">
     </div>
     <div class="row">
       <div class="col">
         <label for="exampleFormControlSelect1">Price/day</label>
-        <input type="text" class="form-control" placeholder="">
+        <input type="text" name="pri_ce" class="form-control" placeholder="">
       </div>
       <div class="col">
         <label for="exampleFormControlSelect1">Star</label>
-        <input type="text" class="form-control" placeholder="">
-      </div>
-      </div>
-    <div class="row">
-      <div class="col">
-        <label for="exampleFormControlSelect1">vehicle name</label>
-        <input type="text" class="form-control" placeholder="">
-      </div>
-      <div class="col">
-        <label for="exampleFormControlSelect1">vehicle id</label>
-        <input type="text" class="form-control" placeholder="">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label for="exampleFormControlSelect1">Price/day</label>
-        <input type="text" class="form-control" placeholder="">
-      </div>
-      <div class="col">
-        <label for="exampleFormControlSelect1">place</label>
-        <input type="text" class="form-control" placeholder="">
+        <input type="text" name="sta_r" class="form-control" placeholder="">
       </div>
       </div>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1">features </label>
-        <textarea class="form-control"placeholder="" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="exampleFormControlTextarea1">Address</label>
+        <textarea name="add_ress" class="form-control"placeholder="address" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-        <div class="row">
-          <div class="col">
-            <label for="exampleFormControlSelect1">First name</label>
-            <input type="text" class="form-control" placeholder="">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">contact number</label>
+          <input type="text" name="number" class="form-control" id="" placeholder="enter number">
           </div>
-          <div class="col">
-            <label for="exampleFormControlSelect1">Last name</label>
-            <input type="text" class="form-control" placeholder="">
-          </div>
-    <div class="form-group">
-    <label for="exampleFormControlTextarea1">Address</label>
-    <textarea class="form-control"placeholder="address" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-    <label for="exampleFormControlSelect1">Country</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-    <option>india</option>
-    <option>select your country</option>
-    </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">contact number</label>
-      <input type="text" name="" class="form-control" id="" placeholder="enter number">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Email</label>
-        <input type="email" name="" id=""class="form-control" placeholder="enter email id">
-        </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Email</label>
+            <input type="email" name="emai_l" id=""class="form-control" placeholder="enter email id">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Features</label>
+              <textarea class="form-control"placeholder="features"name="feature_s" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="exampleFormControlSelect1" id="label3">Bank account number</label>
+                  <input type="text" id="text2"class="form-control"id="" name="accoun_tno" placeholder="account no" name="_account_no">
+                  
+                </div>
+                <div class="col">
+                  <label for="exampleFormControlSelect1" id="label4">Ifsc code</label>
+                  <input type="text"id="text3" name="ifsc_" class="form-control"  id=""placeholder="ifsc"name="_ifsc_code">
+                  
+                </div>
+                <div class="col">
+                  <label for="exampleFormControlSelect1" id="label5">Bank name</label>
+                  <input type="text" name="ban_k" class="form-control"id="text4" placeholder="branch name"name="_branch_name">
+                  
+                </div>
+              </div>
         
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Uplode photos</label>
-          <input type="file" name="" id="" class="form-control" placeholder="enter email id">
+          <input type="file" name="image" id="" class="form-control" placeholder="enter email id">
           </div>
-          <a href=""><button type="button" class="btn btn-success bt1">Add</button></a>
-          <a href="{% url 'hgv:hotelhome' %}"><button type="button" class="btn btn-success bt2">Go back</button></a>
-
+          <a href=""><button class="btn btn-success bt1">Add</button></a>
+          
+        </form>
+<p>{{message}}</p>
+<a href="{% url 'hgv:hotelhome' %}"><button class="btn btn-success bt2">Go back</button></a>
 </div>
 </div>
 </div>
