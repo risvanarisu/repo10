@@ -15,5 +15,6 @@ urlpatterns = [
     path('rejectedhotels',views.getrejectedhotels,name="rejectedhotels"),
     path('activevehicles',views.getactivevehicles,name="activevehicles"),
     path('rejectedvehicles',views.getrejectedvehicles,name="rejectedvehicles"),
+    # path('login',views.getlogin,name="login"),
 
 ]

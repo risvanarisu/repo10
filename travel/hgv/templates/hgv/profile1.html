@@ -12,97 +12,61 @@
             <img src="{% static 'images/prof1.jpg'%}" class="rounded-circle"style="margin-left:40%;" alt="...">
 
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            
+            <form action="{% url 'hgv:profile1' %}" method="post">
+              {% csrf_token %}
 
             <table class="table table-striped">
                 <tr><th>hotel/vehicle/guide company name</th>
-                    <td></td>
+                    <td><input type="text" class="form-control" value="{{service_data.companyname}}" name="s_name" id=""></td>
                 </tr>
                 <tr><th>hotel/guide/vehicle registration id</th>
-                    <td></td>
+                    <td><input type="text" class="form-control" value="{{service_data.regid}}" name="s_id" id=""> </td>
                 </tr>
+                <tr>
+                  <th>hotel/guide/vehicle registration year</th>
+                  <td><input type="text" class="form-control" value="{{service_data.regyear}}" name="s_year" id=""></td>
+              </tr>
                 <tr><th>bank account number</th>
-                    <td></td>
+                    <td><input type="text" class="form-control" value="{{service_data.account_number}}" name="s_account" id=""></td>
                 </tr>
                 <tr><th>ifsc code</th>
-                    <td></td>
+                    <td><input type="text" class="form-control" value="{{service_data.ifsc_code}}" name="s_ifsc" id=""></td>
                 </tr>
-                <tr><th>bank name & branch name</th>
-                    <td></td>
+                <tr><th> branch name</th>
+                    <td><input type="text" class="form-control" value="{{service_data.bank_name}}" name="s_branch" id=""></td>
                 </tr>
-                <tr><th>First name</th>
-                    <td>risu</td>
+                <tr><th>Address</th>
+                    <td><input type="text" class="form-control" value="{{service_data.address}}" name="s_address" id=""></td>
                 </tr>
+                
                 <tr>
-                    <th>Last name</th>
-                    <td>risu</td>
-                </tr>
-                <tr>
-                    <th>Gender</th>
-                    <td>female</td>
-                </tr>
-                <tr>
-                    <th>Date of birth</th>
-                    <td>1998-04-14</td>
-                </tr>
-                <tr>
-                    <th>Mobile</th>
-                    <td>9207861218</td>
+                    <th>contact number</th>
+                    <td><input type="text" class="form-control" value="{{service_data.mobile}}" name="s_contact" id=""></td>
                 </tr>
                 <tr>
                     <th>Email</th>
-                    <td>vkrisvanarisu@gmail.com</td>
+                    <td><input type="email" class="form-control" value="{{service_data.email}}" name="s_email" id=""></td>
                 </tr>
                 <tr>
-                    <th>Address</th>
-                    <td>muchukunnu</td>
+                    <th>User id</th>
+                    <td><input type="text" class="form-control" value="{{service_data.user_id}}" name="s_userid" id=""></td>
                 </tr>
-                <tr>
-                    <th>Country</th>
-                    <td>india</td>
-                </tr>
+                
               </table>
               <br>
-             <a href=""> <!-- Button trigger modal -->
-                <button type="button"style="margin-left:500px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                  Edit profile
+             <a href=""> 
+                <button style="margin-left:500px;" class="btn btn-primary" >
+                  Edit 
                 </button></a>
                 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <label for="">First Name :</label> <input type="text" placeholder="first name" name="" id="">
-                        <label for="">Last Name :</label> <input type="text" placeholder="last name" name="" id="">
-                        <label for="exampleFormControlSelect1">gender :</label><input type="radio" name="gen" id=""> male <input type="radio" name="gen" id=""> female
-                        <label for="">Phone number :</label> <input type="text" placeholder="phone number" name="" id="">
-                        <label for="">Email:</label> <input type="text" placeholder="email" name="" id="">
-                        <label for="">Address :</label> <textarea name="" id="" cols="30" rows="10"></textarea>
                 
-                    
-                    
-                    </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               <a href="{% url 'hgv:hotelhome' %}"><button type="button" class="btn btn-primary">Go to home</button></a>
-              <a href=""><button type="button" class="btn btn-primary">Logout</button></a>
+              
         
             </div>
     </div>
 </div>
-
+</form>
 
 
 

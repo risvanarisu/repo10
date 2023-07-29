@@ -20,6 +20,7 @@ urlpatterns = [
     path('deleteguide/<int:g_id>',views.deleteguides,name="delete_guide"),
     path('deletehotel/<int:h_id>',views.deletehotels,name="delete_hotel"),
     path('deletevehicle/<int:v_id>',views.deletevehicle,name="delete_vehicles"),
+    path('log_out/',views.signout,name="signout"),
 ]
 
 

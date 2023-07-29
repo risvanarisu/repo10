@@ -19,4 +19,6 @@ path('hotelviews/<int:h_id>',views.gethotelviews,name="hotelview"),
 path('bookinghotel/',views.getbookinghotel,name="bookinghotel"),
 path('mybookings/',views.getmybookings,name="mybookings"),
 path('verifyotp/',views.getverifyotp,name="verifyotp"),
+path('changepassword/',views.changepassword,name="change_password"),
+path('logout/',views.logout,name="log_out")
 ]

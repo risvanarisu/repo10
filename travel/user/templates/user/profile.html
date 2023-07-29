@@ -5,99 +5,81 @@
 
 {% load static %}
 <style>
-#p1{
-  padding-right: 200px;
-}
-#p2{
-  padding-right: 250px;
-}
-.modal-body{
-  background-color: rgb(241, 221, 185);
-}
+  #p1 {
+    padding-right: 200px;
+  }
 
-#button1{
-  margin-left:40%;
-}
+  #p2 {
+    padding-right: 250px;
+  }
+
+  .modal-body {
+    background-color: rgb(241, 221, 185);
+  }
+
+  #button1 {
+    margin-left: 40%;
+  }
+
+  .form-control {
+    background-color: rgba(164, 49, 143, 0.903);
+  }
 </style>
 <div class="container" style="background-color: rgb(192, 95, 185);">
-    <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <img src="{% static 'images/prof1.jpg'%}" class="rounded-circle"style="margin-left:40%;" alt="...">
+  <div class="row">
+    <form action="{% url 'user:profiles' %}" method="post">
+      {% csrf_token %}
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <img src="{% static 'images/prof1.jpg'%}" class="rounded-circle" style="margin-left:40%;" alt="...">
 
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+
+
+          <table class="table table-striped">
+            <tr>
+              <th>First name</th>
+              <td><input type="text" class="form-control" value="{{user_data.first_name}}" name="u_name" id=""></td>
+            </tr>
+            <tr>
+              <th>Last name</th>
+              <td><input type="text" class="form-control" value="{{user_data.last_name}}" name="u_lname" id=""></td>
+            </tr>
+            <tr>
+              <th>Gender</th>
+              <td><input type="text" class="form-control" value="{{user_data.gender}}" name="u_gen" id=""></td>
+            </tr>
+            <tr>
+              <th>Date of birth</th>
+              <td><input type="date" class="form-control" value="{{user_data.dateofbirth|date:'Y-m-d'}}" name="u_db" id=""></td>
+            </tr>
+            <tr>
+              <th>Mobile</th>
+              <td><input type="text" class="form-control" value="{{user_data.mobilenumber}}" name="u_contact" id="">
+              </td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td><input type="email" class="form-control" value="{{user_data.email}}" name="u_email" id=""></td>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <td><input type="text" class="form-control" value="{{user_data.address}}" name="u_address" id=""></td>
+            </tr>
             
+          </table>
+          <br>
 
-            <table class="table table-striped">
-                <tr><th>First name</th>
-                    <td>{{user_data.first_name}}</td>
-                </tr>
-                <tr>
-                    <th>Last name</th>
-                    <td>risu</td>
-                </tr>
-                <tr>
-                    <th>Gender</th>
-                    <td>female</td>
-                </tr>
-                <tr>
-                    <th>Date of birth</th>
-                    <td>1998-04-14</td>
-                </tr>
-                <tr>
-                    <th>Mobile</th>
-                    <td>9207861218</td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td>vkrisvanarisu@gmail.com</td>
-                </tr>
-                <tr>
-                    <th>Address</th>
-                    <td>muchukunnu</td>
-                </tr>
-                <tr>
-                    <th>Country</th>
-                    <td>india</td>
-                </tr>
-              </table>
-              <br>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary"id="button1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  Edit profile
-                </button>
-                
-                
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit profile & Password </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <label for=""> First name :</label><input type="text" name="" id="p1"><br><br>
-                        <label for=""> Last name :</label><input type="text" name="" id="p2"><br><br>
-                        <label for="">Date of birth :</label><input type="date" name="" id="p2"><br><br>
-                        <label for=""> Mobile number :</label><input type="text" name="" id="p1"><br><br>
-                        <label for=""> Address :</label><textarea name="" id="p1" cols="30" rows="10"></textarea><br><br>
-                        <label for="">Date of birth :</label><input type="date" name="" id="p2"><br><br>
-                        <label for=""> Old Password :</label><input type="password" name="" id="p1"><br><br>
-                        <label for=""> New Password :</label><input type="password" name="" id="p1"><br><br>
-                        <label for="">Confirm Password :</label><input type="password" name="" id="p1">
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">save</button>
-                        <button type="button" class="btn btn-primary">cancel</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <a href=""> <button class="btn btn-primary" id="button1">
+              Edit
+            </button></a>
 
-              <a href="{% url 'user:homepage' %}"><button type="button"id="button2" class="btn btn-primary">Logout</button></a>
-        
-            </div>
-    </div>
+
+    </form>
+
+    <a href="{% url 'user:homepage' %}"><button type="button" id="button2" class="btn btn-primary">Logout</button></a>
+
+  </div>
+</div>
 </div>
 
 

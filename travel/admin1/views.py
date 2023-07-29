@@ -1,9 +1,34 @@
 from django.shortcuts import render,redirect
 from hgv.models import Catagory
+from .models import *
 
 # Create your views here.
 
+# def getlogin(request):
+#     if request.method=="POST":
+#         _username=request.POST['user']
+#         _password=request.POST['pass']
+#         if '@' in _username:
+#             admin_exist=Admins.objects.filter(username=_username,password=_password).exists()
+#             if admin_exist:
+#                 admin=Admins.objects.get(username=_username,password=_password)
+#                 request.session['admin_id']=admin.id
+#                 return redirect('admin1:adminhome')
+#             else:
+#                 return render(request,"admin1/login",{'message':'invalid user details'})
+#     return redirect('admin1:login')            
 def gethomepage2(request):
+    if request.method=="POST":
+        _username=request.POST['user']
+        _password=request.POST['pass']
+        if '@' in _username:
+            admin_exist=Admins.objects.filter(username=_username,password=_password).exists()
+            if admin_exist:
+                admin=Admins.objects.get(username=_username,password=_password)
+                request.session['admin_id']=admin.id
+                return redirect('admin1:adminhome')
+            else:
+                return render(request,"admin1/login",{'message':'invalid user details'})            
     return render(request,"admin1/homepage2.html")
 
 def getmaster4(request):

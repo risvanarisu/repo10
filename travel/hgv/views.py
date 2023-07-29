@@ -113,7 +113,29 @@ def getedithotel(request,h_id):
     return render(request,"hgv/edithotel.html",{'hotel_data':hotel})
 
 def getprofile1(request):
-    return render(request,"hgv/profile1.html")
+    # service=Catagory.objects.get(id=request.session['service_id'])
+    s_id=request.session['service_id']
+    if request.method=='POST':
+        service_companyname=request.POST['s_name']
+        service_regid=request.POST['s_id']
+        service_regyear=request.POST['s_year']
+        service_accountnumber=request.POST['s_account']
+        service_ifsc=request.POST['s_ifsc']
+        service_branch=request.POST['s_branch']
+        service_address=request.POST['s_address']
+        service_contact=request.POST['s_contact']
+        service_email=request.POST['s_email']
+        service_userid=request.POST['s_userid']
+        
+       
+        
+        Catagory.objects.filter(id=s_id).update(companyname=service_companyname,regid=service_regid,regyear=service_regyear,account_number=service_accountnumber,ifsc_code=service_ifsc,bank_name=service_branch,address=service_address,mobile=service_contact,email=service_email,user_id=service_userid)
+        return redirect('hgv:profile1')
+    else:
+         service=Catagory.objects.get(id=s_id)
+
+     
+    return render(request,"hgv/profile1.html",{'service_data':service})
 
 def getvehicles(request):
     vehicle=Add_vehicle.objects.all()
@@ -179,7 +201,9 @@ def deletehotels(request,h_id):
 def deletevehicle(request,v_id):
     Add_vehicle.objects.get(id=v_id).delete()
     return redirect('hgv:vehicles')
-
+def signout(request):
+    request.session.delete()
+    return redirect('user:homepage')
 
 
 

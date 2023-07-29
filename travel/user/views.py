@@ -153,8 +153,24 @@ def gettransportation(request):
 
 def getprofile(request):
     u_id=request.session['user_id']
-    user=Users.objects.get(id=u_id)
-    return render(request,"user/profile.html",{'user_data':user})
+    
+    if request.method=='POST':
+        user_firstname=request.POST['u_name']
+        user_lastname=request.POST['u_lname']
+        user_gender=request.POST['u_gen']
+        user_email=request.POST['u_email']
+        user_contact=request.POST['u_contact']
+        user_address=request.POST['u_address']
+        user_dateofbirth=request.POST['u_db']
+        
+       
+        
+        Users.objects.filter(id=u_id).update(first_name=user_firstname,last_name=user_lastname,gender=user_gender,dateofbirth=user_dateofbirth,address=user_address,mobilenumber=user_contact,email=user_email)
+        return redirect('user:profiles')
+    else:
+        user=Users.objects.get(id=u_id)
+        return render(request,"user/profile.html",{'user_data':user})
+
 
 def getmaster1(request):
     return render(request,"user/master1.html")
@@ -164,7 +180,7 @@ def getguideview(request,g_id):
     return render(request,"user/guideview.html",{'guide_data':guide})
 
 def gethotelviews(request,h_id): 
-    hotel=Add_hotel.objects.filter(id=h_id)
+    hotel=Add_hotel.objects.get(id=h_id)
     return render(request,"user/hotelview.html",{'hotel_data':hotel})
 
 
@@ -187,3 +203,22 @@ def getverifyotp(request):
             return render(request,"user/verifyotp.html",{'message':'invalid otp'})
 
     return render(request,"user/verifyotp.html")
+def changepassword(request):
+    
+    u_id=request.session['user_id']
+    user=Users.objects.get(id=u_id)
+    password=Users.objects.get(password)
+    if request.method=='POST':
+        oldpass=request.POST['old']
+        newpass=request.POST['new']
+    
+    
+        if password==oldpass:
+            Users.objects.update(password=newpass)
+        else:
+            return redirect('user:home')
+    
+    return render(request,"user/home.html",{'message':'password changed successfully'},{'user_data':user})
+def logout(request):
+    request.session.delete()
+    return redirect('user:homepage')
