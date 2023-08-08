@@ -1,0 +1,73 @@
+{% extends 'hgv/master3.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="container" style="background-color: rgb(192, 95, 185);">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <img src="{% static 'images/prof1.jpg'%}" class="rounded-circle"style="margin-left:40%;" alt="...">
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <form action="{% url 'hgv:guide_profile' %}" method="post">
+              {% csrf_token %}
+
+            <table class="table table-striped">
+                <tr><th>guide company name</th>
+                    <td><input type="text" class="form-control" value="{{service_data.companyname}}" name="name_g" id=""></td>
+                </tr>
+                <tr><th>guide registration id</th>
+                    <td><input type="text" class="form-control" value="{{service_data.regid}}" name="id_g" id=""> </td>
+                </tr>
+                <tr>
+                  <th>guide registration year</th>
+                  <td><input type="text" class="form-control" value="{{service_data.regyear}}" name="year_g" id=""></td>
+              </tr>
+                <tr><th>bank account number</th>
+                    <td><input type="text" class="form-control" value="{{service_data.account_number}}" name="account_g" id=""></td>
+                </tr>
+                <tr><th>ifsc code</th>
+                    <td><input type="text" class="form-control" value="{{service_data.ifsc_code}}" name="ifsc_g" id=""></td>
+                </tr>
+                <tr><th> branch name</th>
+                    <td><input type="text" class="form-control" value="{{service_data.bank_name}}" name="branch_g" id=""></td>
+                </tr>
+                <tr><th>Address</th>
+                    <td><input type="text" class="form-control" value="{{service_data.address}}" name="address_g" id=""></td>
+                </tr>
+                
+                <tr>
+                    <th>contact number</th>
+                    <td><input type="text" class="form-control" value="{{service_data.mobile}}" name="contact_g" id=""></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="email" class="form-control" value="{{service_data.email}}" name="email_g" id=""></td>
+                </tr>
+                <tr>
+                    <th>User id</th>
+                    <td><input type="text" class="form-control" value="{{service_data.user_id}}" name="userid_g" id=""></td>
+                </tr>
+                
+              </table>
+              <br>
+             <a href=""> 
+                <button style="margin-left:500px;" class="btn btn-primary" >
+                  Edit 
+                </button></a>
+                
+                
+              <a href="{% url 'hgv:guidehome' %}"><button type="button" class="btn btn-primary">Go to home</button></a>
+              
+        
+            </div>
+    </div>
+</div>
+</form>
+
+
+
+{% endblock %}

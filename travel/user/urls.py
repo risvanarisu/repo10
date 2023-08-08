@@ -20,5 +20,9 @@ path('bookinghotel/',views.getbookinghotel,name="bookinghotel"),
 path('mybookings/',views.getmybookings,name="mybookings"),
 path('verifyotp/',views.getverifyotp,name="verifyotp"),
 path('changepassword/',views.changepassword,name="change_password"),
-path('logout/',views.logout,name="log_out")
+path('emailverify/',views.getemailverify,name="email_verify"),
+path('logout/',views.getlogout,name="log_out"),
+path('forget/',views.getforget,name="forge_t"),
+path('resetpassword/',views.getresetpassword,name="resetpassword"),
+
 ]

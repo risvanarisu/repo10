@@ -12,44 +12,44 @@
             <img src="{% static 'images/prof1.jpg'%}" class="rounded-circle"style="margin-left:40%;" alt="...">
 
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <form action="{% url 'hgv:profile1' %}" method="post">
+            <form action="{% url 'hgv:hotel_profile' %}" method="post">
               {% csrf_token %}
 
             <table class="table table-striped">
-                <tr><th>hotel/vehicle/guide company name</th>
-                    <td><input type="text" class="form-control" value="{{service_data.companyname}}" name="s_name" id=""></td>
+                <tr><th>hotel name</th>
+                    <td><input type="text" class="form-control" value="{{service_data.companyname}}" name="name_h" id=""></td>
                 </tr>
-                <tr><th>hotel/guide/vehicle registration id</th>
-                    <td><input type="text" class="form-control" value="{{service_data.regid}}" name="s_id" id=""> </td>
+                <tr><th>hotel registration id</th>
+                    <td><input type="text" class="form-control" value="{{service_data.regid}}" name="id_h" id=""> </td>
                 </tr>
                 <tr>
-                  <th>hotel/guide/vehicle registration year</th>
-                  <td><input type="text" class="form-control" value="{{service_data.regyear}}" name="s_year" id=""></td>
+                  <th>hotel registration year</th>
+                  <td><input type="text" class="form-control" value="{{service_data.regyear}}" name="year_h" id=""></td>
               </tr>
                 <tr><th>bank account number</th>
-                    <td><input type="text" class="form-control" value="{{service_data.account_number}}" name="s_account" id=""></td>
+                    <td><input type="text" class="form-control" value="{{service_data.account_number}}" name="account_h" id=""></td>
                 </tr>
                 <tr><th>ifsc code</th>
-                    <td><input type="text" class="form-control" value="{{service_data.ifsc_code}}" name="s_ifsc" id=""></td>
+                    <td><input type="text" class="form-control" value="{{service_data.ifsc_code}}" name="ifsc_h" id=""></td>
                 </tr>
                 <tr><th> branch name</th>
-                    <td><input type="text" class="form-control" value="{{service_data.bank_name}}" name="s_branch" id=""></td>
+                    <td><input type="text" class="form-control" value="{{service_data.bank_name}}" name="branch_h" id=""></td>
                 </tr>
                 <tr><th>Address</th>
-                    <td><input type="text" class="form-control" value="{{service_data.address}}" name="s_address" id=""></td>
+                    <td><input type="text" class="form-control" value="{{service_data.address}}" name="address_h" id=""></td>
                 </tr>
                 
                 <tr>
                     <th>contact number</th>
-                    <td><input type="text" class="form-control" value="{{service_data.mobile}}" name="s_contact" id=""></td>
+                    <td><input type="text" class="form-control" value="{{service_data.mobile}}" name="contact_h" id=""></td>
                 </tr>
                 <tr>
                     <th>Email</th>
-                    <td><input type="email" class="form-control" value="{{service_data.email}}" name="s_email" id=""></td>
+                    <td><input type="email" class="form-control" value="{{service_data.email}}" name="email_h" id=""></td>
                 </tr>
                 <tr>
                     <th>User id</th>
-                    <td><input type="text" class="form-control" value="{{service_data.user_id}}" name="s_userid" id=""></td>
+                    <td><input type="text" class="form-control" value="{{service_data.user_id}}" name="userid_h" id=""></td>
                 </tr>
                 
               </table>

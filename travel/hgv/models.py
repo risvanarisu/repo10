@@ -49,6 +49,7 @@ class Add_hotel(models.Model):
     star=models.IntegerField(db_column='_star')
     Address=models.TextField(max_length=100,db_column='_address')
     contact=models.TextField(db_column='_contact')
+    rooms=models.TextField( null=True,db_column='rooms_available')
     email=models.TextField(max_length=50,db_column='_email')
     features=models.TextField(max_length=50,db_column='_features')
     account_no=models.TextField(max_length=50, null=True,db_column='_account no')

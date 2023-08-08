@@ -94,22 +94,24 @@ h1{
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <form action="" method="post">
+        <form action="{% url 'user:change_password' %}" method="post">
           {% csrf_token %}
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">your current password:
-          <input type="password" class="form-control" name="old" id="">
-        </h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+          
+        
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        current password :
+        <input type="password" class="form-control" name="old" id="">
         new password :
         <input type="password" class="form-control" name="new" id="">
         confirm new password :
-        <input type="password" class="form-control"  name="new2" id="">
+        <input type="password" class="form-control"  name="new" id="">
       </div>
       <div class="modal-footer">
        <a href=""> <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button></a>
-        <a href="{% url 'user:change_password'% }"><button class="btn btn-primary">Update</button></a>
+        <button type="submit" class="btn btn-primary">Update</button>
       </form>
       </div>
     </div>
@@ -117,27 +119,31 @@ h1{
 </div>
               
               <!-- Button trigger modal -->
-        <a href="{% url 'user:log_out' %} ">     <button  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
- Log out 
-</button></a> 
+       <button  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+         Log out 
+</button> 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Please confirm</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form action="{% url 'user:log_out' %}" method="post">
+       {% csrf_token %} 
+
       <div class="modal-body">
         Are you sure,you want to log out?
       </div>
       <div class="modal-footer">
         <button  class="btn btn-secondary">Cancel</button>
-        <button  class="btn btn-primary">Log out</button>
+       <button  class="btn btn-primary" data-bs-toggle="modal">Log out</button>
+      </form>
       </div>
     </div>
-  </div>
+  </div> 
 </div>
 
             </div>

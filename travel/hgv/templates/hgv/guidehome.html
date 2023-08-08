@@ -6,7 +6,7 @@
 <style>
 .side{
 height: 100%;
-background-color: rgba(30, 29, 29, 0.979);
+background-color: #689368;
 color: rgb(4, 72, 31);
 font-size: x-large;
 font-family: 'Times New Roman', Times, serif;
@@ -30,14 +30,45 @@ font-family: 'Times New Roman', Times, serif;
         <li class="nav-item">
           <a class="nav-link" href="{% url 'hgv:guideview2' %}">Me</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'hgv:profile1' %}">Profile</a>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'hgv:guide_profile' %}"> Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'hgv:addnewguides' %}">Add new</a>
           </li>
-        
-        
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'hgv:guide_password' %}">Change password</a>
+          </li>
+          <li class="nav-item">
+            <!-- Button trigger modal -->
+  <a class="nav-link" href=""  data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Log out 
+  </a>
+          </li>
+          <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+ <div class="modal-header">
+   <h1 class="modal-title fs-5" id="exampleModalLabel">Please confirm</h1>
+   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ </div>
+ <form action="{% url 'hgv:guide_signout' %}" method="post">
+  {% csrf_token %} 
+
+ <div class="modal-body">
+   Are you sure,you want to log out?
+ </div>
+ <div class="modal-footer">
+   <button  class="btn btn-secondary">Cancel</button>
+  <button  class="btn btn-primary" data-bs-toggle="modal">Log out</button>
+ </form>
+ </div>
+</div>
+</div> 
+</div>  
+
       </ul>
 </div>
 </div>

@@ -7,16 +7,21 @@ from hgv.models import Catagory,Add_hotel,Add_guide,Add_vehicle
 #Create your views here.
 
 def gethomepage(request):
+        
     return render(request,"user/homepage.html")
 
 def gethome(request):
+        
     return render(request,"user/home.html")
 
 def getvehicleview(request,v_id):
-    vehicle=Add_vehicle.objects.get(id=v_id)
+    if 'user_id' in request.session :
+        vehicle=Add_vehicle.objects.get(id=v_id)
+        return render(request,"user/vehicleview.html",{'vehicle_data':vehicle})
     return render(request,"user/vehicleview.html",{'vehicle_data':vehicle})
 
 def getlogin(request):
+
     if request.method=="POST":
         _username=request.POST['user_name']
         _password=request.POST['pass_word']
@@ -47,13 +52,13 @@ def getlogin(request):
             if service_exist:
                 service_data=Catagory.objects.get(user_id=_username,password=_password)
                 if service_data.status=='active' and service_data.usercatagory== 'guides':
-                    request.session['service_id']=service_data.id
+                    request.session['guide_id']=service_data.id
                     return redirect('hgv:guidehome')
                 elif service_data.status=='active' and service_data.usercatagory== 'hotels':
-                    request.session['service_id']=service_data.id
+                    request.session['hotel_id']=service_data.id
                     return redirect('hgv:hotelhome')
                 elif service_data.status=='active' and service_data.usercatagory== 'vehicles':
-                    request.session['service_id']=service_data.id
+                    request.session['vehicle_id']=service_data.id
                     return redirect('hgv:vehiclehome')
                 else:
             
@@ -69,6 +74,8 @@ def getlogin(request):
     
     
 def getmaster(request):
+    
+        
     return render(request,"user/master.html")
 
 def getsignup(request):
@@ -140,58 +147,74 @@ def getsignup(request):
     return render(request,'user/signup.html',{'message':msg})
 
 def getguides(request):
-    guide=Add_guide.objects.all()
+    if 'user_id' in request.session :
+        guide=Add_guide.objects.all()
+        return render(request,"user/guides.html")
     return render(request,"user/guides.html",{'guide_data':guide})
-
+    
 def gethotels(request):
-    hotel=Add_hotel.objects.all()
+    if 'user_id' in request.session :
+        hotel=Add_hotel.objects.all()
+        return render(request,"user/hotels.html")
     return render(request,"user/hotels.html",{'hotel_data':hotel})
 
 def gettransportation(request):
-    vehicle=Add_vehicle.objects.all()
+    if 'user_id' in request.session :
+        vehicle=Add_vehicle.objects.all()
+        return render(request,"user/transportation.html")
     return render(request,"user/transportation.html",{'vehicle_data':vehicle})
 
 def getprofile(request):
-    u_id=request.session['user_id']
-    
-    if request.method=='POST':
-        user_firstname=request.POST['u_name']
-        user_lastname=request.POST['u_lname']
-        user_gender=request.POST['u_gen']
-        user_email=request.POST['u_email']
-        user_contact=request.POST['u_contact']
-        user_address=request.POST['u_address']
-        user_dateofbirth=request.POST['u_db']
+    if 'user_id' in request.session :
+        u_id=request.session['user_id']
         
-       
+        if request.method=='POST':
+            user_firstname=request.POST['u_name']
+            user_lastname=request.POST['u_lname']
+            user_gender=request.POST['u_gen']
+            user_email=request.POST['u_email']
+            user_contact=request.POST['u_contact']
+            user_address=request.POST['u_address']
+            user_dateofbirth=request.POST['u_db']
+            
         
-        Users.objects.filter(id=u_id).update(first_name=user_firstname,last_name=user_lastname,gender=user_gender,dateofbirth=user_dateofbirth,address=user_address,mobilenumber=user_contact,email=user_email)
-        return redirect('user:profiles')
-    else:
-        user=Users.objects.get(id=u_id)
-        return render(request,"user/profile.html",{'user_data':user})
+            
+            Users.objects.filter(id=u_id).update(first_name=user_firstname,last_name=user_lastname,gender=user_gender,dateofbirth=user_dateofbirth,address=user_address,mobilenumber=user_contact,email=user_email)
+            return redirect('user:profiles')
+        else:
+            user=Users.objects.get(id=u_id) 
+    return render(request,"user/profile.html",{'user_data':user})
 
 
 def getmaster1(request):
     return render(request,"user/master1.html")
 
 def getguideview(request,g_id):
-    guide=Add_guide.objects.get(id=g_id)
+    if 'user_id' in request.session :
+        guide=Add_guide.objects.get(id=g_id)
+        return render(request,"user/guideview.html")
     return render(request,"user/guideview.html",{'guide_data':guide})
 
-def gethotelviews(request,h_id): 
-    hotel=Add_hotel.objects.get(id=h_id)
+def gethotelviews(request,h_id):
+    if 'user_id' in request.session : 
+        hotel=Add_hotel.objects.get(id=h_id)
+        return render(request,"user/hotelview.html")
     return render(request,"user/hotelview.html",{'hotel_data':hotel})
 
 
 
 def getbookinghotel(request):
+    if 'user_id' in request.session :
+        return render(request,"user/bookinghotel.html")
     return render(request,"user/bookinghotel.html")
 
 def getmybookings(request):
+    if 'user_id' in request.session :
+        return render(request,"user/mybookings.html")
     return render(request,"user/mybookings.html")
 
 def getverifyotp(request):
+    
     if request.method=='POST':
         otp=request.POST['o_tp']
         c_id=request.session['user_id']                         
@@ -202,23 +225,75 @@ def getverifyotp(request):
         else:
             return render(request,"user/verifyotp.html",{'message':'invalid otp'})
 
+        
     return render(request,"user/verifyotp.html")
+
+def getemailverify(request):
+    if request.method=='POST':
+        new_otp=request.POST['otp_']
+        u_id=request.session['user_id']                         
+        data=Users.objects.get(id=u_id)
+        if new_otp==data.otp:
+            return redirect('user:resetpassword')
+        else:
+            # return redirect('user:homepage')
+        
+
+            return render(request,"user/emailverify.html",{'message':'invalid otp'})
+    return render(request,"user/emailverify.html")
+
 def changepassword(request):
     
     u_id=request.session['user_id']
     user=Users.objects.get(id=u_id)
-    password=Users.objects.get(password)
+    oldpassword=user.password
     if request.method=='POST':
         oldpass=request.POST['old']
         newpass=request.POST['new']
     
     
-        if password==oldpass:
-            Users.objects.update(password=newpass)
+        if oldpassword==oldpass:
+            Users.objects.filter(id=u_id).update(password=newpass)
         else:
             return redirect('user:home')
     
-    return render(request,"user/home.html",{'message':'password changed successfully'},{'user_data':user})
-def logout(request):
-    request.session.delete()
+    return render(request,"user/home.html",{'user_data':user})
+
+def getlogout(request):
+    del request.session['user_id']
     return redirect('user:homepage')
+
+def getforget(request):
+    if request.method=="POST":
+        user_name=request.POST['user']
+        if '@' in user_name:  
+            user_exist=Users.objects.filter(email=user_name).exists()
+            if user_exist:
+                user=Users.objects.get(email=user_name)
+                request.session['user_id']=user.id
+                
+                otp_n=randint(1000,9999)
+                send_mail(
+                'please verify your otp',
+                    str(otp_n),
+                    settings.EMAIL_HOST_USER,
+                    [user_name],
+            
+                )
+                u_id=request.session['user_id']
+                Users.objects.filter(id=u_id).update(otp=otp_n)
+
+        
+                return redirect('user:email_verify')
+            else:
+                return render(request,"user/forgetpass.html",{'message':'email does not exist'})
+    return render(request,"user/forgetpass.html")
+
+def getresetpassword(request):
+    if request.method=="POST":
+        reset_password=request.POST['pass_word']
+        u_id=request.session['user_id']
+        Users.objects.filter(id=u_id).update(password=reset_password)
+        return render(request,"user/resetpassword.html",{'message':'password changed succefully'})
+
+    return render(request,"user/resetpassword.html")

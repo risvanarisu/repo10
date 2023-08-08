@@ -9,19 +9,22 @@ from django.conf import settings
 
 
 def gethotelme(request):
+
     hotel=Add_hotel.objects.all()
+    
     return render(request,"hgv/hotelme.html",{'hotel_data':hotel})
 
 def getvehiclehome(request):
     return render(request,"hgv/vehiclehome.html")
 
 def getaddnewvehicle(request):
+    
     if request.method=='POST':
         v_name=request.POST['_name']
         v_id=request.POST['i_d']
         v_model=request.POST['m_odel']
         v_price=request.POST['p_rice']
-       
+    
         v_address=request.POST['address_']
         v_contact=request.POST['number_']
         v_email=request.POST['email_']
@@ -39,14 +42,16 @@ def getaddnewvehicle(request):
         else:
             return render(request,"hgv/addnewvehicle.html",{'message':'vehicle already exists'})
     return render(request,"hgv/addnewvehicle.html")
+    # return render(request,"hgv/addnewvehicle.html")
 
 def geteditvehicle(request,v_id):
+    
     if request.method=='POST':
         veh_name=request.POST['_name']
         veh_id=request.POST['i_d']
         veh_model=request.POST['m_odel']
         veh_price=request.POST['p_rice']
-       
+    
         veh_address=request.POST['address_']
         veh_contact=request.POST['number_']
         veh_email=request.POST['email_']
@@ -59,9 +64,11 @@ def geteditvehicle(request,v_id):
         return redirect('hgv:vehicles')
 
     vehicle=Add_vehicle.objects.get(id=v_id)
+        # return render(request,"hgv/editvehicle.html")
     return render(request,"hgv/editvehicle.html",{'vehicle_data':vehicle})
 
 def getaddnewhotel(request):
+
     if request.method=='POST':
         h_name=request.POST['_name']
         h_place=request.POST['pla_ce']
@@ -69,6 +76,7 @@ def getaddnewhotel(request):
         h_star=request.POST['sta_r']
         h_address=request.POST['add_ress']
         h_contact=request.POST['number']
+        h_rooms=request.POST['rooms']
         h_email=request.POST['emai_l']
         h_feature=request.POST['feature_s']
         h_account_no=request.POST['accoun_tno']
@@ -78,11 +86,12 @@ def getaddnewhotel(request):
         hotel_exists=Add_hotel.objects.filter(email=h_email)
         if not hotel_exists:
 
-            hotel=Add_hotel(hotel_name=h_name,place=h_place,price=h_price,star=h_star,Address=h_address,contact=h_contact,email=h_email,features=h_feature,account_no=h_account_no,ifsc_code=h_ifsc,bank_name=h_bank,hotel_image=h_photo)
+            hotel=Add_hotel(hotel_name=h_name,place=h_place,price=h_price,star=h_star,Address=h_address,contact=h_contact,rooms=h_rooms,email=h_email,features=h_feature,account_no=h_account_no,ifsc_code=h_ifsc,bank_name=h_bank,hotel_image=h_photo)
             hotel.save()
             return render(request,"hgv/addnewhotel.html",{'message':'hotel added successfully'})
         else:
             return render(request,"hgv/addnewhotel.html",{'message':'hotel already exists'})
+        # return render(request,"hgv/addnewhotel.html")
     return render(request,"hgv/addnewhotel.html")
 
 def gethotelhome(request):
@@ -92,6 +101,7 @@ def getmaster3(request):
     return render(request,"hgv/master3.html")
 
 def getedithotel(request,h_id):
+    
     if request.method=='POST':
         hotel_name=request.POST['_name']
         hotel_place=request.POST['pla_ce']
@@ -99,52 +109,58 @@ def getedithotel(request,h_id):
         hotel_star=request.POST['sta_r']
         hotel_address=request.POST['add_ress']
         hotel_contact=request.POST['number']
+        hotel_rooms=request.POST['rooms']
         hotel_email=request.POST['emai_l']
         hotel_feature=request.POST['feature_s']
         hotel_account_no=request.POST['accoun_tno']
         hotel_ifsc=request.POST['ifsc_']
         hotel_bank=request.POST['ban_k']
         hotel_photo=request.FILES['image']
-        Add_hotel.objects.filter(id=h_id).update(hotel_name=hotel_name,place=hotel_place,price=hotel_price,star=hotel_star,Address=hotel_address,contact=hotel_contact,email=hotel_email,features=hotel_feature,account_no=hotel_account_no,ifsc_code=hotel_ifsc,bank_name=hotel_bank,hotel_image=hotel_photo)
+        Add_hotel.objects.filter(id=h_id).update(hotel_name=hotel_name,rooms=hotel_rooms,place=hotel_place,price=hotel_price,star=hotel_star,Address=hotel_address,contact=hotel_contact,email=hotel_email,features=hotel_feature,account_no=hotel_account_no,ifsc_code=hotel_ifsc,bank_name=hotel_bank,hotel_image=hotel_photo)
         return redirect('hgv:hotelme')
 
 
     hotel=Add_hotel.objects.get(id=h_id)
+        # return render(request,"hgv/edithotel.html")
     return render(request,"hgv/edithotel.html",{'hotel_data':hotel})
 
-def getprofile1(request):
-    # service=Catagory.objects.get(id=request.session['service_id'])
-    s_id=request.session['service_id']
-    if request.method=='POST':
-        service_companyname=request.POST['s_name']
-        service_regid=request.POST['s_id']
-        service_regyear=request.POST['s_year']
-        service_accountnumber=request.POST['s_account']
-        service_ifsc=request.POST['s_ifsc']
-        service_branch=request.POST['s_branch']
-        service_address=request.POST['s_address']
-        service_contact=request.POST['s_contact']
-        service_email=request.POST['s_email']
-        service_userid=request.POST['s_userid']
+# def getprofile1(request):
+#     if 'service_id' in request.session :
+#         service=Catagory.objects.get(id=request.session['service_id'])
+#         s_id=request.session['service_id']
+#         if request.method=='POST':
+#             service_companyname=request.POST['s_name']
+#             service_regid=request.POST['s_id']
+#             service_regyear=request.POST['s_year']
+#             service_accountnumber=request.POST['s_account']
+#             service_ifsc=request.POST['s_ifsc']
+#             service_branch=request.POST['s_branch']
+#             service_address=request.POST['s_address']
+#             service_contact=request.POST['s_contact']
+#             service_email=request.POST['s_email']
+#             service_userid=request.POST['s_userid']
+            
         
-       
-        
-        Catagory.objects.filter(id=s_id).update(companyname=service_companyname,regid=service_regid,regyear=service_regyear,account_number=service_accountnumber,ifsc_code=service_ifsc,bank_name=service_branch,address=service_address,mobile=service_contact,email=service_email,user_id=service_userid)
-        return redirect('hgv:profile1')
-    else:
-         service=Catagory.objects.get(id=s_id)
-
+            
+#             Catagory.objects.filter(id=s_id).update(companyname=service_companyname,regid=service_regid,regyear=service_regyear,account_number=service_accountnumber,ifsc_code=service_ifsc,bank_name=service_branch,address=service_address,mobile=service_contact,email=service_email,user_id=service_userid)
+#             return redirect('hgv:profile1')
+#         else:
+#             service=Catagory.objects.get(id=s_id)
+#         return render(request,"hgv/profile1.html")
      
-    return render(request,"hgv/profile1.html",{'service_data':service})
+#     return render(request,"hgv/profile1.html",{'service_data':service})
 
 def getvehicles(request):
+    
     vehicle=Add_vehicle.objects.all()
+    
     return render(request,"hgv/vehicles.html",{'vehicle_data':vehicle})
 
 def getguidehome(request):
     return render(request,"hgv/guidehome.html")
 
 def getadd_newguide(request):
+    
     if request.method=='POST':
         g_first_name=request.POST['firstname']
         g_second_name=request.POST['secondname']
@@ -165,10 +181,11 @@ def getadd_newguide(request):
             return render(request,"hgv/addnewguide.html",{'message':'guide added successfully'})
         else:
             return render(request,"hgv/addnewguide.html",{'message':'guide already exists'})
+        # return render(request,"hgv/addnewguide.html")
     return render(request,"hgv/addnewguide.html")
 
-
 def geteditguide(request,g_id):
+    
     if request.method=='POST':
         e_first_name=request.POST['e_firstname']
         e_second_name=request.POST['e_secondname']
@@ -184,10 +201,13 @@ def geteditguide(request,g_id):
         Add_guide.objects.filter(id=g_id).update(first_name=e_first_name,second_name=e_second_name,Address=e_address,country=e_country,price=e_price,contact=e_contact,email=e_email,account_no=e_account_no,ifsc_code=e_ifsc,bank_name=e_bankname,gui_image=e_image)
         return redirect('hgv:guideview2')
     guide=Add_guide.objects.get(id=g_id)
+        # return render(request,"hgv/editguide.html")
     return render(request,"hgv/editguide.html",{'guide_data':guide})
 
 def getguideview2(request):
+    
     guide=Add_guide.objects.all()
+        # return render(request,"hgv/guideview2.html")
     return render(request,"hgv/guideview2.html",{'guide_data':guide})
 
 def deleteguides(request,g_id):
@@ -201,10 +221,150 @@ def deletehotels(request,h_id):
 def deletevehicle(request,v_id):
     Add_vehicle.objects.get(id=v_id).delete()
     return redirect('hgv:vehicles')
-def signout(request):
-    request.session.delete()
+
+def guidesignout(request):
+    del request.session['guide_id']
     return redirect('user:homepage')
 
+def hotelsignout(request):
+    del request.session['hotel_id']
+    return redirect('user:homepage')
 
+def vehiclesignout(request):
+    del request.session['vehicle_id']
+    return redirect('user:homepage')
 
+# def updatepassword(request):
+#     if 'service_id' in request.session :
+#         s_id=request.session['service_id']
+#         service=Catagory.objects.get(id=s_id)
+#         oldpassword=service.password
+#         if request.method=='POST':
+#             oldpass=request.POST['old_pass']
+#             newpass=request.POST['new_pass']
+        
+        
+#             if oldpassword==oldpass:
+#                 Catagory.objects.filter(id=s_id).update(password=newpass)
+#             else:
+#                 return redirect('hgv:profile1')
+#         return render(request,"hgv/profile1.html") 
+#     return render(request,"hgv/profile1.html",{'service_data':service})
+
+def getguidepassword(request):
+
+    g_id=request.session['guide_id']
+    guide=Catagory.objects.get(id=g_id)
+    oldpassword=guide.password
+    if request.method=='POST':
+        oldpass=request.POST['pass']
+        newpass=request.POST['p_ass']
+    
+    
+        if oldpassword==oldpass:
+            Catagory.objects.filter(id=g_id).update(password=newpass)
+        else:
+            return redirect('hgv:guide_home')
+    # return render(request,"hgv/profile1.html") 
+    
+    return render(request,"hgv/guide_password.html",{'service_data':guide})
+
+def gethotelpassword(request):
+    h_id=request.session['hotel_id']
+    hotel=Catagory.objects.get(id=h_id)
+    old_password=hotel.password
+    if request.method=='POST':
+        oldpass=request.POST['password']
+        newpass=request.POST['pass_word']
+    
+    
+        if old_password==oldpass:
+            Catagory.objects.filter(id=h_id).update(password=newpass)
+        else:
+            return redirect('hgv:hotel_home')
+    return render(request,"hgv/hotel_password.html",{'service_data':hotel})
+
+def getvehiclepassword(request):
+    v_id=request.session['vehicle_id']
+    vehicle=Catagory.objects.get(id=v_id)
+    oldpass_word=vehicle.password
+    if request.method=='POST':
+        oldpass=request.POST['pa_ss']
+        newpass=request.POST['passwo_rd']
+    
+    
+        if oldpass_word==oldpass:
+            Catagory.objects.filter(id=v_id).update(password=newpass)
+        else:
+            return redirect('hgv:vehicle_home')
+    return render(request,"hgv/vehicle_password.html",{'service_data':vehicle})
+
+def gethotel_profile(request):
+    
+    h_id=request.session['hotel_id']
+    if request.method=='POST':
+        h_companyname=request.POST['name_h']
+        h_regid=request.POST['id_h']
+        h_regyear=request.POST['year_h']
+        h_accountnumber=request.POST['account_h']
+        h_ifsc=request.POST['ifsc_h']
+        h_branch=request.POST['branch_h']
+        h_address=request.POST['address_h']
+        h_contact=request.POST['contact_h']
+        h_email=request.POST['email_h']
+        h_userid=request.POST['userid_h']
+            
+        
+            
+        Catagory.objects.filter(id=h_id).update(companyname=h_companyname,regid=h_regid,regyear=h_regyear,account_number=h_accountnumber,ifsc_code=h_ifsc,bank_name=h_branch,address=h_address,mobile=h_contact,email=h_email,user_id=h_userid)
+        return redirect('hgv:hotel_profile')
+    else:
+        hotel=Catagory.objects.get(id=h_id)
+        # return render(request,"hgv/hotel_profile.html")
+         
+    return render(request,"hgv/hotel_profile.html",{'service_data':hotel})
+
+def getvehicle_profile(request):
+    v_id=request.session['vehicle_id']
+    if request.method=='POST':
+        v_companyname=request.POST['name_v']
+        v_regid=request.POST['id_v']
+        v_regyear=request.POST['year_v']
+        v_accountnumber=request.POST['account_v']
+        v_ifsc=request.POST['ifsc_v']
+        v_branch=request.POST['branch_v']
+        v_address=request.POST['address_v']
+        v_contact=request.POST['contact_v']
+        v_email=request.POST['email_v']
+        v_userid=request.POST['userid_v']
+            
+        
+            
+        Catagory.objects.filter(id=v_id).update(companyname=v_companyname,regid=v_regid,regyear=v_regyear,account_number=v_accountnumber,ifsc_code=v_ifsc,bank_name=v_branch,address=v_address,mobile=v_contact,email=v_email,user_id=v_userid)
+        return redirect('hgv:vehicle_profile')
+    else:
+        vehicle=Catagory.objects.get(id=v_id)
+    return render(request,"hgv/vehicle_profile.html",{'service_data':vehicle})
+
+def getguide_profile(request):
+    g_id=request.session['guide_id']
+    if request.method=='POST':
+        g_companyname=request.POST['name_g']
+        g_regid=request.POST['id_g']
+        g_regyear=request.POST['year_g']
+        g_accountnumber=request.POST['account_g']
+        g_ifsc=request.POST['ifsc_g']
+        g_branch=request.POST['branch_g']
+        g_address=request.POST['address_g']
+        g_contact=request.POST['contact_g']
+        g_email=request.POST['email_g']
+        g_userid=request.POST['userid_g']
+            
+        
+            
+        Catagory.objects.filter(id=g_id).update(companyname=g_companyname,regid=g_regid,regyear=g_regyear,account_number=g_accountnumber,ifsc_code=g_ifsc,bank_name=g_branch,address=g_address,mobile=g_contact,email=g_email,user_id=g_userid)
+        return redirect('hgv:guide_profile')
+    else:
+        guide=Catagory.objects.get(id=g_id)
+    return render(request,"hgv/guide_profile.html",{'service_data':guide})
 
