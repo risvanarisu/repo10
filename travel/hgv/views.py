@@ -17,6 +17,9 @@ def gethotelme(request):
 def getvehiclehome(request):
     return render(request,"hgv/vehiclehome.html")
 
+def gethomepage3(request):
+    return render(request,"hgv/homepage3.html")
+
 def getaddnewvehicle(request):
     
     if request.method=='POST':
@@ -124,31 +127,7 @@ def getedithotel(request,h_id):
         # return render(request,"hgv/edithotel.html")
     return render(request,"hgv/edithotel.html",{'hotel_data':hotel})
 
-# def getprofile1(request):
-#     if 'service_id' in request.session :
-#         service=Catagory.objects.get(id=request.session['service_id'])
-#         s_id=request.session['service_id']
-#         if request.method=='POST':
-#             service_companyname=request.POST['s_name']
-#             service_regid=request.POST['s_id']
-#             service_regyear=request.POST['s_year']
-#             service_accountnumber=request.POST['s_account']
-#             service_ifsc=request.POST['s_ifsc']
-#             service_branch=request.POST['s_branch']
-#             service_address=request.POST['s_address']
-#             service_contact=request.POST['s_contact']
-#             service_email=request.POST['s_email']
-#             service_userid=request.POST['s_userid']
-            
-        
-            
-#             Catagory.objects.filter(id=s_id).update(companyname=service_companyname,regid=service_regid,regyear=service_regyear,account_number=service_accountnumber,ifsc_code=service_ifsc,bank_name=service_branch,address=service_address,mobile=service_contact,email=service_email,user_id=service_userid)
-#             return redirect('hgv:profile1')
-#         else:
-#             service=Catagory.objects.get(id=s_id)
-#         return render(request,"hgv/profile1.html")
-     
-#     return render(request,"hgv/profile1.html",{'service_data':service})
+
 
 def getvehicles(request):
     
@@ -234,22 +213,7 @@ def vehiclesignout(request):
     del request.session['vehicle_id']
     return redirect('user:homepage')
 
-# def updatepassword(request):
-#     if 'service_id' in request.session :
-#         s_id=request.session['service_id']
-#         service=Catagory.objects.get(id=s_id)
-#         oldpassword=service.password
-#         if request.method=='POST':
-#             oldpass=request.POST['old_pass']
-#             newpass=request.POST['new_pass']
-        
-        
-#             if oldpassword==oldpass:
-#                 Catagory.objects.filter(id=s_id).update(password=newpass)
-#             else:
-#                 return redirect('hgv:profile1')
-#         return render(request,"hgv/profile1.html") 
-#     return render(request,"hgv/profile1.html",{'service_data':service})
+
 
 def getguidepassword(request):
 
@@ -367,4 +331,135 @@ def getguide_profile(request):
     else:
         guide=Catagory.objects.get(id=g_id)
     return render(request,"hgv/guide_profile.html",{'service_data':guide})
+
+def getservice_signup(request):
+    msg="" 
+    if request.method=='POST':
+        user_type=request.POST['usertype']
+        if user_type=='guides':
+            g_usercatagory=user_type
+            g_firstname=request.POST['first_name']
+            g_lastname=request.POST['last_name']
+            g_gender=request.POST['gen']
+            g_dateofbirth=request.POST['dob']
+            g_account_num=request.POST['account_no']
+            g_ifsc_code=request.POST['ifsc_code']
+            g_bank_name=request.POST['bank_name']
+            g_address=request.POST['addre_ss']
+            g_country=request.POST['_country']
+            g_mobilenumber=request.POST['mobnum']
+            g_email=request.POST['emai_l']
+            g_password=request.POST['pass_word']
+            g_loginid=randint(1000,9999)
+            guide_exists=Guides.objects.filter(email=g_email).exists()
+
+            if not guide_exists:
+
+
+                guide_data=Guides(usercatagory=g_usercatagory,first_name=g_firstname,last_name=g_lastname,gender=g_gender,dateofbirth=g_dateofbirth,account_number=g_account_num,ifsc_code=g_ifsc_code,bank_name=g_bank_name,address=g_address,country=g_country,mobile=g_mobilenumber,email=g_email,user_id=g_loginid,password=g_password)
+                guide_data.save()
+                subject='your login id is '+str(g_loginid)
+                send_mail(
+                    'login credentials',
+                    subject,
+                    settings.EMAIL_HOST_USER,
+                    [g_email],
+                                                       
+                )
+                
+                msg='registration successful'
+            else:
+                msg='email exists'
+
+         
+        if user_type=='hotels':
+            h_usercatagory=user_type
+            h_comp_name=request.POST['name']
+            h_company_id=request.POST['id']
+            h_company_year=request.POST['year']
+            h_account_num=request.POST['account_no']
+            h_ifsc_code=request.POST['ifsc_code']
+            h_bank_name=request.POST['bank_name']
+            h_address=request.POST['addre_ss']
+            h_country=request.POST['_country']
+            h_mobilenumber=request.POST['mobnum']
+            h_email=request.POST['emai_l']
+            h_password=request.POST['pass_word']
+            h_loginid=randint(1000,9999)
+            hotel_exists=Hotels.objects.filter(email=h_email).exists()
+            if not hotel_exists:
+                hotel_data=Hotels(usercatagory=h_usercatagory,companyname=h_comp_name,reg_id=h_company_id,reg_year=h_company_year,account_number=h_account_num,ifsc_code=h_ifsc_code,bank_name=h_bank_name,address=h_address,country=h_country,mobile=h_mobilenumber,email=h_email,user_id=h_loginid,password=h_password)
+                hotel_data.save()
+                subject='your login id is '+str(h_loginid)
+                send_mail(
+                    'login credentials',
+                    subject,
+                    settings.EMAIL_HOST_USER,
+                    [h_email],
+                                                       
+                )
+                
+                msg='registration successful'
+            else:
+                msg='email exists'
+        if user_type=='vehicles':
+            v_usercatagory=user_type
+            v_comp_name=request.POST['name']
+            v_company_id=request.POST['id']
+            v_company_year=request.POST['year']
+            v_account_num=request.POST['account_no']
+            v_ifsc_code=request.POST['ifsc_code']
+            v_bank_name=request.POST['bank_name']
+            v_address=request.POST['addre_ss']
+            v_country=request.POST['_country']
+            v_mobilenumber=request.POST['mobnum']
+            v_email=request.POST['emai_l']
+            v_password=request.POST['pass_word']
+            v_loginid=randint(1000,9999)
+            vehicle_exists=Vehicles.objects.filter(email=v_email).exists()
+            if not vehicle_exists:
+                vehicle_data=Vehicles(usercatagory=v_usercatagory,companyname=v_comp_name,reg_id=v_company_id,reg_year=v_company_year,account_number=v_account_num,ifsc_code=v_ifsc_code,bank_name=v_bank_name,address=v_address,country=v_country,mobile=v_mobilenumber,email=v_email,user_id=v_loginid,password=v_password)
+                vehicle_data.save()
+                subject='your login id is '+str(v_loginid)
+                send_mail(
+                    'login credentials',
+                    subject,
+                    settings.EMAIL_HOST_USER,
+                    [v_email],
+                                                       
+                )
+                
+                msg='registration successful'
+            else:
+                msg='email exists'
+
+    
+                  
+    return render(request,"hgv/service_signup.html",{'message':msg})
+
+def getservice_login(request):
+
+    if request.method=="POST":
+        _username=request.POST['user_name']
+        _password=request.POST['pass_word']
+        
+            
+        
+        if  service_data.status=='active' and service_data.usercatagory== 'guides':
+            service_data=Guides.objects.get(g_user_id=_username,g_password=_password)
+                
+            request.session['guide_id']=service_data.id
+            return redirect('hgv:guidehome')
+        elif service_data.status=='active' and service_data.usercatagory== 'hotels':
+            service_data=Hotels.objects.get(h_user_id=_username,h_password=_password)
+            request.session['hotel_id']=service_data.id
+            return redirect('hgv:hotelhome')
+        elif service_data.status=='active' and service_data.usercatagory== 'vehicles':
+            service_data=Vehicles.objects.get(v_user_id=_username,h_password=_password)
+            request.session['vehicle_id']=service_data.id
+            return redirect('hgv:vehiclehome')
+        
+
+    return redirect('hgv:service_login')
+
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from hgv.models import Catagory
+from hgv.models import Guides,Hotels,Vehicles
 from .models import *
 
 # Create your views here.
@@ -28,46 +28,46 @@ def getadminhome(request):
 
 def getguideslist(request): 
     if 'admin_id' in request.session :         
-        guide_data=Catagory.objects.filter(usercatagory='guides',status='inactive')
+        guide_data=Guides.objects.filter(usercatagory='guides',status='inactive')
         if request.method=="POST":
             guide_id=request.POST['guide_id']
-            guide=Catagory.objects.get(id=guide_id)
+            guide=Guides.objects.get(id=guide_id)
             if 'approve' in request.POST:
                 guide.status='active'
             if 'reject' in request.POST:
                 guide.status='reject'
             guide.save()
-        return render(request,"admin1/guideslist.html")
+        # return redirect(request,"admin1/guideslist.html")
 
-    return render(request,"admin1/guideslist.html",{'guides':guide_data})
+        return render(request,"admin1/guideslist.html",{'guides':guide_data})
 
 
 def gethotelslist(request):
     if 'admin_id' in request.session : 
-        hotel_data=Catagory.objects.filter(usercatagory='hotels',status='inactive')
+        hotel_data=Hotels.objects.filter(usercatagory='hotels',status='inactive')
         if request.method=="POST":
             hotel_id=request.POST['hotel_id']
-            hotel=Catagory.objects.get(id=hotel_id)
+            hotel=Hotels.objects.get(id=hotel_id)
             if 'approve' in request.POST:
                 hotel.status='active'
             if 'reject' in request.POST:
                 hotel.status='reject'
             hotel.save()
-        return render(request,"admin1/hotelslist.html")
-    return render(request,"admin1/hotelslist.html",{'hotels':hotel_data})
+            return redirect("admin1:hotelslist")
+        return render(request,"admin1/hotelslist.html",{'hotels':hotel_data})
 
 def getvehicleslist(request):
     if 'admin_id' in request.session : 
-        vehicle_data=Catagory.objects.filter(usercatagory='vehicles',status='inactive')
+        vehicle_data=Vehicles.objects.filter(usercatagory='vehicles',status='inactive')
         if request.method=="POST":
             vehicle_id=request.POST['vehicle_id']
-            vehicle=Catagory.objects.get(id=vehicle_id)
+            vehicle=Vehicles.objects.get(id=vehicle_id)
             if 'approve' in request.POST:
                 vehicle.status='active'
             if 'reject' in request.POST:
                 vehicle.status='reject'
             vehicle.save()
-        return render(request,"admin1/vehicleslist.html")
+        # return render(request,"admin1/vehicleslist.html")
     return render(request,"admin1/vehicleslist.html",{'vehicles':vehicle_data})
  
 
@@ -80,27 +80,27 @@ def getviewbookings(request):
     return render(request,"admin1/viewbookings.html")
 
 def getactiveguides(request):
-    guide_data=Catagory.objects.filter(usercatagory='guides',status='active')
+    guide_data=Guides.objects.filter(usercatagory='guides',status='active')
     return render(request,"admin1/activeguides.html",{'guides':guide_data})
 
 def getrejectedguide(request):
-    guide_data=Catagory.objects.filter(usercatagory='guides',status='reject')
+    guide_data=Guides.objects.filter(usercatagory='guides',status='reject')
     return render(request,"admin1/rejectedguide.html",{'guides':guide_data})
 
 def getactivehotels(request):
-    hotel_data=Catagory.objects.filter(usercatagory='hotels',status='active')
+    hotel_data=Hotels.objects.filter(usercatagory='hotels',status='active')
     return render(request,"admin1/activehotels.html",{'hotels':hotel_data})
 
 def getrejectedhotels(request):
-    hotel_data=Catagory.objects.filter(usercatagory='hotels',status='reject')
+    hotel_data=Hotels.objects.filter(usercatagory='hotels',status='reject')
     return render(request,"admin1/rejectedhotels.html",{'hotels':hotel_data})
 
 def getactivevehicles(request):
-    vehicle_data=Catagory.objects.filter(usercatagory='vehicles',status='active')
+    vehicle_data=Vehicles.objects.filter(usercatagory='vehicles',status='active')
     return render(request,"admin1/activevehicles.html",{'vehicles':vehicle_data})
 
 def getrejectedvehicles(request):
-    vehicle_data=Catagory.objects.filter(usercatagory='vehicles',status='reject')
+    vehicle_data=Vehicles.objects.filter(usercatagory='vehicles',status='reject')
     return render(request,"admin1/rejectedvehicles.html",{'vehicles':vehicle_data})
 
 def getreset_password(request):

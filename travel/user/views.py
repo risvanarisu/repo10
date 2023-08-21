@@ -15,10 +15,9 @@ def gethome(request):
     return render(request,"user/home.html")
 
 def getvehicleview(request,v_id):
-    if 'user_id' in request.session :
-        vehicle=Add_vehicle.objects.get(id=v_id)
-        return render(request,"user/vehicleview.html",{'vehicle_data':vehicle})
+    vehicle=Add_vehicle.objects.get(id=v_id)
     return render(request,"user/vehicleview.html",{'vehicle_data':vehicle})
+ 
 
 def getlogin(request):
 
@@ -145,23 +144,23 @@ def getsignup(request):
                 msg='email exists'
 
     return render(request,'user/signup.html',{'message':msg})
+                  
 
 def getguides(request):
     if 'user_id' in request.session :
         guide=Add_guide.objects.all()
-        return render(request,"user/guides.html")
     return render(request,"user/guides.html",{'guide_data':guide})
+                   
     
 def gethotels(request):
     if 'user_id' in request.session :
         hotel=Add_hotel.objects.all()
-        return render(request,"user/hotels.html")
     return render(request,"user/hotels.html",{'hotel_data':hotel})
+                   
 
 def gettransportation(request):
     if 'user_id' in request.session :
         vehicle=Add_vehicle.objects.all()
-        return render(request,"user/transportation.html")
     return render(request,"user/transportation.html",{'vehicle_data':vehicle})
 
 def getprofile(request):
@@ -190,27 +189,26 @@ def getmaster1(request):
     return render(request,"user/master1.html")
 
 def getguideview(request,g_id):
-    if 'user_id' in request.session :
-        guide=Add_guide.objects.get(id=g_id)
-        return render(request,"user/guideview.html")
+    guide=Add_guide.objects.get(id=g_id)    
     return render(request,"user/guideview.html",{'guide_data':guide})
 
 def gethotelviews(request,h_id):
-    if 'user_id' in request.session : 
-        hotel=Add_hotel.objects.get(id=h_id)
-        return render(request,"user/hotelview.html")
+    hotel=Add_hotel.objects.get(id=h_id)
     return render(request,"user/hotelview.html",{'hotel_data':hotel})
 
 
 
 def getbookinghotel(request):
-    if 'user_id' in request.session :
-        return render(request,"user/bookinghotel.html")
     return render(request,"user/bookinghotel.html")
 
+def getbookvehicle(request):
+    return render(request,"user/bookvehicle.html")
+
+def getbookguide(request):
+    return render(request,"user/bookguide.html")
+
 def getmybookings(request):
-    if 'user_id' in request.session :
-        return render(request,"user/mybookings.html")
+    # if 'user_id' in request.session :
     return render(request,"user/mybookings.html")
 
 def getverifyotp(request):
@@ -236,7 +234,7 @@ def getemailverify(request):
         if new_otp==data.otp:
             return redirect('user:resetpassword')
         else:
-            # return redirect('user:homepage')
+            
         
 
             return render(request,"user/emailverify.html",{'message':'invalid otp'})

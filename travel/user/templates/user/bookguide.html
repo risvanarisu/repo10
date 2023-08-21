@@ -1,0 +1,35 @@
+{% extends 'user/master1.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="container" style="background-color: rgb(181, 95, 151);">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="mb-3">
+            <label for=""><h3>pick up date : </h3></label>
+          <input type="date" class="form-control" name="" id=""  ><br>
+          <label for=""><h3>return date : </h3></label>
+          <input type="date" class="form-control" name="" id=""  ><br>
+          <label for=""><h3>no of days : </h3></label>
+          <input class="form-control form-control-lg"  type="text" name="" id="" placeholder="eg:2 adults+2 children">
+          <br>
+          
+          <a href="">  <button type="button" class="btn btn-warning btn-lg">  Confirm booking</button></a>
+          
+          </div>
+          
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

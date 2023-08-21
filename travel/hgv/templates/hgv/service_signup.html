@@ -51,7 +51,6 @@
     <label for="exampleFormControlSelect1">User type</label>
     <select class="form-control" id="exampleFormControlSelect1" name="usertype">
       <option value="">please select</option>
-      <option value="user" id="use_r">user</option>
       <option value="guides" id="guide_s">guides</option>
       <option value="hotels" id="hotel_s">hotels</option>
     <option value="vehicles" id="vehicle_s">vehicles</option>
@@ -60,12 +59,12 @@
       </div> 
       <div id="form2" style="display:none;">
         <div  class="form-group" >
-         <label for="exampleFormControlSelect1" id="label1">hotel/vehicle/guide company name</label>
+         <label for="exampleFormControlSelect1" id="label1"> company name</label>
          <input type="text" name="name" class="form-control" placeholder="company name" id="text1">
          <label for=""  id="error1"></label>
        </div>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1" id="label2">hotel/vehicle/guide registration id </label>
+        <label for="exampleFormControlTextarea1" id="label2"> registration id </label>
         <input type="text"  name="id" id="text2" class="form-control" placeholder="registration id" style="width: 100%;">
         <label for="" id="error2"></label>
       </div> 
@@ -74,25 +73,8 @@
         <input type="date" name="year" id="date1" class="form-control" style="width: 100%;">
         <label for=""id="error3"></label>
         </div>
-        <div class="row">
-          <div class="col">
-            <label for="exampleFormControlSelect1" id="label4">Bank account number</label>
-            <input type="text" class="form-control" id="text3" placeholder="account no" name="account_no">
-            <label for=""id="error4"></label>
-          </div>
-          <div class="col">
-            <label for="exampleFormControlSelect1" id="label5">Ifsc code</label>
-            <input type="text" class="form-control" id="text4" placeholder="ifsc"name="ifsc_code">
-            <label for=""id="error5"></label>
-          </div>
-          <div class="col">
-            <label for="exampleFormControlSelect1" id="label6"> Bank name </label>
-            <input type="text" class="form-control"id="text5" placeholder="branch name"name="bank_name">
-            <label for=""id="error6"></label>
-          </div>
-        </div>
-      </div> 
-
+        
+</div>
 <div class="row">
 <div class="col form1 ">
   <label for="exampleFormControlSelect1" id="label7">First name</label>
@@ -114,6 +96,23 @@
 <label for="exampleFormControlTextarea1" id="label10">Date of birth </label>
 <input type="date" name="dob" id="date2" class="form-control" style="width: 100%;">
 <label for=""id="error10"></label>
+</div>
+<div class="row">
+  <div class="col">
+    <label for="exampleFormControlSelect1" id="label4">Bank account number</label>
+    <input type="text" class="form-control" id="text3" placeholder="account no" name="account_no">
+    <label for=""id="error4"></label>
+  </div>
+  <div class="col">
+    <label for="exampleFormControlSelect1" id="label5">Ifsc code</label>
+    <input type="text" class="form-control" id="text4" placeholder="ifsc"name="ifsc_code">
+    <label for=""id="error5"></label>
+  </div>
+  <div class="col">
+    <label for="exampleFormControlSelect1" id="label6"> Bank name </label>
+    <input type="text" class="form-control"id="text5" placeholder="branch name"name="bank_name">
+    <label for=""id="error6"></label>
+  </div>
 </div>
 
 
@@ -190,13 +189,9 @@ $('#exampleFormControlSelect1').change(function(){
   selection = $(this).val();
   switch(selection)
   {
-      case 'user':
+      case 'guides':
           $('#form2').hide();
           $('.form1').show();
-          break;
-      case 'guides':
-          $('.form1').hide();
-          $('#form2').show();
           break;
       case 'hotels':
           $('.form1').hide();
@@ -206,6 +201,7 @@ $('#exampleFormControlSelect1').change(function(){
           $('.form1').hide();
           $('#form2').show();
           break;
+      
       
   }
   });

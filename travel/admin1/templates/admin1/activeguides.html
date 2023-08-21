@@ -22,7 +22,8 @@
     <table class="table table-dark">
       <thead>
         <tr>
-          <th scope="col">guide name & <br> id </th>
+          <th scope="col">guide name </th>
+          <th scope="col"> gender</th>
           <th scope="col">Email</th>
           <th scope="col">Address</th>
           <th scope="col">Mobile</th>
@@ -36,7 +37,8 @@
             <form action="" method="post">
               {% csrf_token %}
             <tr>
-              <td>{{guide.companyname}} <br> {{guide.regid}}</td>
+              <td>{{guide.first_name}} {{guide.last_name}} </td>
+              <td>{{guide.gender}}</td>
               <td>{{guide.email}}</td>
               <td>{{guide.address}}</td>
               <td>{{guide.mobile}}</td>

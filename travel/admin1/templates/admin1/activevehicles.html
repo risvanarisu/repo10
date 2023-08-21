@@ -21,6 +21,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Company name <br>& Id </th>
+                    <th scope="col">reg year</th>
                     <th scope="col">Email</th>
                     <th scope="col">Address</th>
                     <th scope="col">Mobile</th>
@@ -34,7 +35,8 @@
                   <form action="" method="post">
                     {% csrf_token %}
                   <tr>
-                    <td>{{vehicle.companyname}} <br>{{vehicle.regid}}</td>
+                    <td>{{vehicle.companyname}} <br>{{vehicle.reg_id}}</td>
+                    <td>{{vehicle.reg_year}}</td>
                     <td>{{vehicle.email}}</td>
                     <td>{{vehicle.address}}</td>
                     <td>{{vehicle.mobile}}</td>
