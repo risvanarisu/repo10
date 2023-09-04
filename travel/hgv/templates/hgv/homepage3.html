@@ -66,16 +66,18 @@ h1{
         </div>
         <div class="modal-body">
           <div class="btn-group">
-            <form action="" method="post">
+            <form action="{% url 'hgv:service_login' %}" method="post">
               {% csrf_token %}
-            <button  id ="but3" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Select user type
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><button class="dropdown-item" value="guides" type="button">Guides</button></li>
-              <li><button class="dropdown-item" value="hotels" type="button">Hotels</button></li>
-              <li><button class="dropdown-item" value="vehicles" type="button">vehicles</button></li>
-            </ul>
+              
+              <label for="exampleFormControlSelect1">User type</label>
+              <select class="form-control" id="exampleFormControlSelect1" name="usertype">
+                <option value="">please select</option>
+      
+                <option value="guides" id="guide_s">guides</option>
+                <option value="hotels" id="hotel_s">hotels</option>
+              <option value="vehicles" id="vehicle_s">vehicles</option>
+                 
+                </select>
           </div><br><br>
           <label for=""> User Name:</label><input type="text" name="user_name" id="text1"><br><br>
           <label for="">Password :</label><input type="password" name="pass_word" id="pass1"><br><br>

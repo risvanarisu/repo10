@@ -3,7 +3,7 @@ from .models import *
 from random import randint
 from django.core.mail import send_mail 
 from django.conf import settings 
-from hgv.models import Catagory,Add_hotel,Add_guide,Add_vehicle
+from hgv.models import Add_hotel,Add_vehicle,Guides
 #Create your views here.
 
 def gethomepage(request):
@@ -45,25 +45,25 @@ def getlogin(request):
                 return redirect('user:home')
             else:
                 return render(request,"user/login",{'message':'invalid user details'})
-        elif _username.isdigit():
-            service_exist=Catagory.objects.filter(user_id=_username,password=_password).exists()
+        # elif _username.isdigit():
+        #     service_exist=Catagory.objects.filter(user_id=_username,password=_password).exists()
             
-            if service_exist:
-                service_data=Catagory.objects.get(user_id=_username,password=_password)
-                if service_data.status=='active' and service_data.usercatagory== 'guides':
-                    request.session['guide_id']=service_data.id
-                    return redirect('hgv:guidehome')
-                elif service_data.status=='active' and service_data.usercatagory== 'hotels':
-                    request.session['hotel_id']=service_data.id
-                    return redirect('hgv:hotelhome')
-                elif service_data.status=='active' and service_data.usercatagory== 'vehicles':
-                    request.session['vehicle_id']=service_data.id
-                    return redirect('hgv:vehiclehome')
-                else:
+        #     if service_exist:
+        #         service_data=Catagory.objects.get(user_id=_username,password=_password)
+        #         if service_data.status=='active' and service_data.usercatagory== 'guides':
+        #             request.session['guide_id']=service_data.id
+        #             return redirect('hgv:guidehome')
+        #         elif service_data.status=='active' and service_data.usercatagory== 'hotels':
+        #             request.session['hotel_id']=service_data.id
+        #             return redirect('hgv:hotelhome')
+        #         elif service_data.status=='active' and service_data.usercatagory== 'vehicles':
+        #             request.session['vehicle_id']=service_data.id
+        #             return redirect('hgv:vehiclehome')
+        #         else:
             
-                    return render(request,"user/homepage.html",{'message':'account not approved'})
-            else:
-                return render(request,"user/homepage.html",{'message':'invalid user name or password'})
+        #             return render(request,"user/homepage.html",{'message':'account not approved'})
+        #     else:
+        #         return render(request,"user/homepage.html",{'message':'invalid user name or password'})
 
 
 
@@ -112,43 +112,43 @@ def getsignup(request):
                 
                 msg='registration successful'
                 return redirect('user:verifyotp') 
-        if user_type=='hotels' or 'guides' or 'vehicles':
-            s_usercatagory=user_type
-            s_comp_name=request.POST['name']
-            s_company_id=request.POST['id']
-            s_company_year=request.POST['year']
-            s_account_num=request.POST['account_no']
-            s_ifsc_code=request.POST['ifsc_code']
-            s_bank_name=request.POST['bank_name']
-            s_address=request.POST['addre_ss']
-            s_country=request.POST['_country']
-            s_mobilenumber=request.POST['mobnum']
-            s_email=request.POST['emai_l']
-            s_password=request.POST['pass_word']
-            s_loginid=randint(1000,9999)
-            servicer_exists=Catagory.objects.filter(email=s_email).exists()
-            if not servicer_exists:
-                servicer_data=Catagory(usercatagory=s_usercatagory,companyname=s_comp_name,regid=s_company_id,regyear=s_company_year,account_number=s_account_num,ifsc_code=s_ifsc_code,bank_name=s_bank_name,address=s_address,country=s_country,mobile=s_mobilenumber,email=s_email,user_id=s_loginid,password=s_password)
-                servicer_data.save()
-                subject='your login id is '+str(s_loginid)
-                send_mail(
-                    'login credentials',
-                    subject,
-                    settings.EMAIL_HOST_USER,
-                    [s_email],
+        # if user_type=='hotels' or 'guides' or 'vehicles':
+        #     s_usercatagory=user_type
+        #     s_comp_name=request.POST['name']
+        #     s_company_id=request.POST['id']
+        #     s_company_year=request.POST['year']
+        #     s_account_num=request.POST['account_no']
+        #     s_ifsc_code=request.POST['ifsc_code']
+        #     s_bank_name=request.POST['bank_name']
+        #     s_address=request.POST['addre_ss']
+        #     s_country=request.POST['_country']
+        #     s_mobilenumber=request.POST['mobnum']
+        #     s_email=request.POST['emai_l']
+        #     s_password=request.POST['pass_word']
+        #     s_loginid=randint(1000,9999)
+        #     servicer_exists=Catagory.objects.filter(email=s_email).exists()
+        #     if not servicer_exists:
+        #         servicer_data=Catagory(usercatagory=s_usercatagory,companyname=s_comp_name,regid=s_company_id,regyear=s_company_year,account_number=s_account_num,ifsc_code=s_ifsc_code,bank_name=s_bank_name,address=s_address,country=s_country,mobile=s_mobilenumber,email=s_email,user_id=s_loginid,password=s_password)
+        #         servicer_data.save()
+        #         subject='your login id is '+str(s_loginid)
+        #         send_mail(
+        #             'login credentials',
+        #             subject,
+        #             settings.EMAIL_HOST_USER,
+        #             [s_email],
                                                        
-                )
+        #         )
                 
-                msg='registration successful'
-            else:
-                msg='email exists'
+        #         msg='registration successful'
+        #     else:
+        #         msg='email exists'
 
     return render(request,'user/signup.html',{'message':msg})
                   
 
 def getguides(request):
     if 'user_id' in request.session :
-        guide=Add_guide.objects.all()
+        guide=Guides.objects.all()
     return render(request,"user/guides.html",{'guide_data':guide})
                    
     

@@ -16,16 +16,19 @@
               {% csrf_token %}
 
             <table class="table table-striped">
-                <tr><th>guide company name</th>
-                    <td><input type="text" class="form-control" value="{{service_data.companyname}}" name="name_g" id=""></td>
+                <tr><th>guide first name</th>
+                    <td><input type="text" class="form-control" value="{{service_data.first_name}}" name="name_g" id=""></td>
                 </tr>
-                <tr><th>guide registration id</th>
-                    <td><input type="text" class="form-control" value="{{service_data.regid}}" name="id_g" id=""> </td>
+                <tr><th>guide  last name</th>
+                    <td><input type="text" class="form-control" value="{{service_data.last_name}}" name="g_name" id=""> </td>
                 </tr>
                 <tr>
-                  <th>guide registration year</th>
-                  <td><input type="text" class="form-control" value="{{service_data.regyear}}" name="year_g" id=""></td>
-              </tr>
+                  <th>guide gender</th>
+                  <td><input type="text" class="form-control" value="{{service_data.gender}}" name="gen_g" id=""></td></tr>
+                  <tr>
+                    <th>guide date of birth</th>
+                    <td><input type="text" class="form-control" value="{{service_data.dateofbirth|date:'Y-m-d'}}" name="dob_g" id=""></td></tr>
+  
                 <tr><th>bank account number</th>
                     <td><input type="text" class="form-control" value="{{service_data.account_number}}" name="account_g" id=""></td>
                 </tr>

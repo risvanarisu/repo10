@@ -20,11 +20,11 @@
                     <td><input type="text" class="form-control" value="{{service_data.companyname}}" name="name_h" id=""></td>
                 </tr>
                 <tr><th>hotel registration id</th>
-                    <td><input type="text" class="form-control" value="{{service_data.regid}}" name="id_h" id=""> </td>
+                    <td><input type="text" class="form-control" value="{{service_data.reg_id}}" name="id_h" id=""> </td>
                 </tr>
                 <tr>
                   <th>hotel registration year</th>
-                  <td><input type="text" class="form-control" value="{{service_data.regyear}}" name="year_h" id=""></td>
+                  <td><input type="text" class="form-control" value="{{service_data.reg_year|date:'Y-m-d'}}" name="year_h" id=""></td>
               </tr>
                 <tr><th>bank account number</th>
                     <td><input type="text" class="form-control" value="{{service_data.account_number}}" name="account_h" id=""></td>
