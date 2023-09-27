@@ -19,7 +19,11 @@ background-color: antiquewhite;
   <div class="col-12 col-sm-12 col-md-12 col-lg-12">
     <form action="" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-    
+      
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">room type</label>
+          <input type="text" name="t_ype" value="{{hotel_data.room_type}}" class="form-control" id="" placeholder="enter number">
+          </div>
       <div class="row">
         <div class="col">
           <label for="exampleFormControlSelect1">Price/day</label>
@@ -43,8 +47,10 @@ background-color: antiquewhite;
                 
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Uplode photos</label>
-            <input type="file" value="{{hotel_data.hotel_image}}" name="image" id="" class="form-control" placeholder="enter email id">
-            </div>
+           >
+            <img src="{{hotel_data.hotel_image.url}}" alt="">
+              <input type="file" name="image" id="" class="form-control" placeholder="enter email id"> 
+          </div>
     
     
           <a href=""><button id="button1" class="btn btn-success" >Update</button></a>

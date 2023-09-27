@@ -24,13 +24,7 @@ padding-right: 40%;
         <div class="col">
           <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-          <label for="exampleFormControlSelect1">vehicle name</label>
-          <input type="text" name="_name" class="form-control" value="{{vehicle_data.vehicle_name}}" placeholder="">
-        </div>
-        <div class="col">
-          <label for="exampleFormControlSelect1">vehicle id</label>
-          <input type="text" class="form-control" value="{{vehicle_data.vehicle_id}}" placeholder="" name="i_d">
-        </div>
+          
       </div>
       <div class="row">
       <div class="col">
@@ -50,8 +44,9 @@ padding-right: 40%;
           
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Uplode photos</label>
-            <input type="file" value="{{vehicle_data.vehicle_image}}" name="phtov" id="" class="form-control">
-            </div>
+             <input type="file" value="{{vehicle_data.vehicle_image}}" name="phtov" id="" class="form-control">
+            <img src="{{vehicle_data.vehicle_image.url}}" alt="">
+          </div>
 
             <a href=""><button  id="button1" class="btn btn-success" >Update</button></a>
           

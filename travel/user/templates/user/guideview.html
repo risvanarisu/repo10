@@ -25,13 +25,13 @@
               </div>
               <br>
               <div class="form-floating mb-3">
-                <input type="text"value="{{guide_data.price}}" class="form-control" id="floatingInput" placeholder="">
-                <label for="floatingInput"> price/day</label>
+                <input type="text"value="{{guide_data.gender}}" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput"> </label>
               </div>
               <br>
               
               <div class="form-floating mb-3">
-                <input type="text" value="{{guide_data.contact}}" class="form-control" id="floatingInput" placeholder="">
+                <input type="text" value="{{guide_data.mobile}}" class="form-control" id="floatingInput" placeholder="">
                 <label for="floatingInput">contacts </label>
               </div>
               <br>
@@ -42,44 +42,17 @@
               </div>
               <br>
               <div class="form-floating mb-3">
-                <textarea class="form-control" name="" id="" cols="30" rows="10">{{guide_data.Address}} {{guide_data.country}} </textarea>
+                <textarea class="form-control" name="" id="" cols="30" rows="10">{{guide_data.address}} {{guide_data.country}} </textarea>
                 <label for="floatingInput"> Address</label>
               </div>
 
-        <a href="{% url 'user:bookguide' %}"><button class="btn btn-lg btn-warning">Booking</button></a>
+        <a href="{% url 'user:bookguide' guide_data.id %}"><button class="btn btn-lg btn-warning">Booking</button></a>
 
             
 
         
       
-              <h1 class="display-6">Reviews</h1>
-    
-              <div class="row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">alakananda</h5>
-                      <p class="card-text">thank you for your guiding.</p>
-                      <a href="#" class="btn btn-primary">Reply</a>
-                  </div>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">shiyas</h5>
-                      <p class="card-text">i like your services.</p>
-                      <a href="#" class="btn btn-primary">Reply</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
-            </div>
-            </div>
-                  
-</div>
+  
                   
  </div>
 </div>

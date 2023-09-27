@@ -30,7 +30,7 @@ button{
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{hotel.hotel_name}}</h5>
-          <p class="card-text">{{hotel.Address}} <br>
+          <p class="card-text">{{hotel.room_type}}<br>{{hotel.Address}} <br>
             {{hotel.features}}</p>
           <a href="{% url 'hgv:edithotel' hotel.id %}"><button class="btn btn-success">Edit</button></a>
           <a href="{% url 'hgv:delete_hotel' hotel.id %}"><button class="btn btn-danger">Delete</button></a>

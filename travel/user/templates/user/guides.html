@@ -25,11 +25,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
+          <form action="" method="post">
+            {% csrf_token %}
+          
             <h2 class="display-6">WE ARE READY TO SERVE YOU</h2>
           
-          <a class="nav-link active" href=""><input class="form-control me-2" type="text" placeholder="Place" aria-label="Search"></a>
+          <input  type="text" placeholder="Place" name="pla_ce" >
           <a class="nav-link active" href=""><button class="btn btn-success" type="submit" >Search</button></a>
-          
+        </form>
           
         
         
@@ -48,7 +51,7 @@
                   <h5 class="card-title">{{guide.first_name}}</h5>
                   <p class="card-text">
                     <label for="">Address</label><br> 
-                   <input type="text" value="{{guide.Address}}" name="" id="">
+                   <input type="text" value="{{guide.address}}" name="" id="">
                 </p>
                   <a href="{% url 'user:guideviews' guide.id %}" class="btn btn-primary">View</a>
                 </div>

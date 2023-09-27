@@ -19,42 +19,49 @@ def gethomepage3(request):
     return render(request,"hgv/homepage3.html")
 
 def getaddnewvehicle(request):
+    v_id=request.session['vehicle_id']
     if request.method=='POST':
-        v_name=request.POST['_name']
-        v_id=request.POST['i_d']
-        v_model=request.POST['m_odel']
-        v_price=request.POST['p_rice']
-        v_feature=request.POST['_features']
-        v_photo=request.FILES['phtov']
-        vehicle=Add_vehicle(vehicle_name=v_name,vehicle_id=v_id,model=v_model,price=v_price,features=v_feature,vehicle_image=v_photo)
-        vehicle.save()
-        return render(request,"hgv/addnewvehicle.html",{'message':'vehicle added successfully'})  
+        vehicle_name=request.POST['veh_name']
+        if vehicle_name=='1':
+            v_id=Vehicles.objects.get(id=v_id)
+            v_model=request.POST['m_odel']
+            v_price=request.POST['p_rice']
+            v_feature=request.POST['_features']
+            v_photo=request.FILES['phtov']
+            vehicle=Add_vehicle(vehicle_id=v_id,model=v_model,price=v_price,features=v_feature,vehicle_image=v_photo)
+            vehicle.save()
+            return render(request,"hgv/addnewvehicle.html",{'message':'vehicle added successfully'})  
     return render(request,"hgv/addnewvehicle.html")
     
 
 def geteditvehicle(request,v_id):    
     if request.method=='POST':
-        veh_name=request.POST['_name']
-        veh_id=request.POST['i_d']
+        
         veh_model=request.POST['m_odel']
         veh_price=request.POST['p_rice']
         veh_feature=request.POST['_features']
         veh_photo=request.FILES['phtov']
-        Add_vehicle.objects.filter(id=v_id).update(vehicle_name=veh_name,vehicle_id=veh_id,model=veh_model,price=veh_price,features=veh_feature,vehicle_image=veh_photo)
+        Add_vehicle.objects.filter(id=v_id).update(model=veh_model,price=veh_price,features=veh_feature,vehicle_image=veh_photo)
         return redirect('hgv:vehicles')
     vehicle=Add_vehicle.objects.get(id=v_id)  
     return render(request,"hgv/editvehicle.html",{'vehicle_data':vehicle})
 
 def getaddnewhotel(request):
+    h_id=request.session['hotel_id']
     if request.method=='POST':
-        h_price=request.POST['pri_ce']
-        h_star=request.POST['sta_r']
-        h_rooms=request.POST['rooms']
-        h_feature=request.POST['feature_s']
-        h_photo=request.FILES['image']
-        hotel=Add_hotel(price=h_price,star=h_star,rooms=h_rooms,features=h_feature,hotel_image=h_photo)
-        hotel.save()
-        return render(request,"hgv/addnewhotel.html",{'message':'hotel added successfully'})
+        hotel_name=request.POST['hotelname']
+        if hotel_name=='3':
+            hot_id=Hotels.objects.get(id=h_id)
+            h_type=request.POST['t_ype']
+            h_price=request.POST['pri_ce']
+            h_star=request.POST['sta_r']
+            h_rooms=request.POST['rooms']
+            h_feature=request.POST['feature_s']
+            h_photo=request.FILES['image']
+            hotel=Add_hotel(hotel_id=hot_id,room_type=h_type,price=h_price,star=h_star,rooms=h_rooms,features=h_feature,hotel_image=h_photo)
+            hotel.save()
+            
+            return render(request,"hgv/addnewhotel.html",{'message':'hotel added successfully'})
     return render(request,"hgv/addnewhotel.html")
 
 def gethotelhome(request):
@@ -65,12 +72,14 @@ def getmaster3(request):
 
 def getedithotel(request,h_id):   
     if request.method=='POST':
+    
+        hotel_type=request.POST['t_ype']
         hotel_price=request.POST['pri_ce']
         hotel_star=request.POST['sta_r']
         hotel_rooms=request.POST['rooms']
         hotel_feature=request.POST['feature_s']
         hotel_photo=request.FILES['image']
-        Add_hotel.objects.filter(id=h_id).update(rooms=hotel_rooms,price=hotel_price,star=hotel_star,features=hotel_feature,hotel_image=hotel_photo)
+        Add_hotel.objects.filter(id=h_id).update(room_type=hotel_type,rooms=hotel_rooms,price=hotel_price,star=hotel_star,features=hotel_feature,hotel_image=hotel_photo)
         return redirect('hgv:hotelme')
     hotel=Add_hotel.objects.get(id=h_id)
     return render(request,"hgv/edithotel.html",{'hotel_data':hotel})
@@ -82,7 +91,19 @@ def getvehicles(request):
     return render(request,"hgv/vehicles.html",{'vehicle_data':vehicle})
 
 def getguidehome(request):
-    return render(request,"hgv/guidehome.html")
+    if 'guide_id'in request.session:
+        booking=Guide_book.objects.filter(status='booking pending',guide_id=request.session['guide_id'])
+        if request.method=="POST":
+            
+            b_id=Guide_book.objects.get(id=b_id)
+            if 'approve' in request.POST:
+               booking.status='active'
+               
+            if 'reject' in request.POST:
+                booking.status='reject'
+                Guide_book.objects.filter(id=b_id)   
+            booking.save()
+        return render(request,"hgv/guidehome.html",{'booking_data':booking})
 
 
 def deletehotels(request,h_id):
@@ -95,15 +116,15 @@ def deletevehicle(request,v_id):
 
 def guidesignout(request):
     del request.session['guide_id']
-    return redirect('user:homepage')
+    return redirect('hgv:homepage3')
 
 def hotelsignout(request):
     del request.session['hotel_id']
-    return redirect('user:homepage')
+    return redirect('hgv:homepage3')
 
 def vehiclesignout(request):
     del request.session['vehicle_id']
-    return redirect('user:homepage')
+    return redirect('hgv:homepage3')
 
 
 

@@ -65,9 +65,11 @@ min-height:40px;
 <div class="col-12 col-sm-12 col-md-6 col-lg-4">
     <div class="card" style="width: 18rem;height: 300px;">
         <img src="/media/{{vehicle.vehicle_image}}" class="card-img-top"style="height:175px ;" alt="...">
-        <div class="card-body">
-          <p class="card-text"> <label for=""> model :</label>
-        <input type="text" value="{{vehicle.model}}" name="" id=""></p></a>
+        <div class="card-body"><h5>{{vehicle.companyname}}</h5>
+          <p class="card-text">{{vehicle.mobile}}
+            <br>{{vehicle.email}}<br>
+            {{vehicle.address}}
+        <br>
        <a href="{% url 'user:vehicleviews' vehicle.id %}"><button class="btn btn-warning">View</button></a>
         </div>
         </div>

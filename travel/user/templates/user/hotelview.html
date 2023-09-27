@@ -8,99 +8,34 @@
 <div class="container" style="background-color: rgb(186, 90, 186);">
     <div class="row">
 
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         
-          
-            <h1 class="display-6">{{hotel_data.hotel_name}}</h1>
-            <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="/media/{{hotel_data.hotel_image}}" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="" class="d-block w-100" alt="...">
+
+                
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    {% for hotel in hotel_data %}
+          <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="/media/{{hotel.hotel_image}}" class="img-fluid rounded-start" alt="" height="300px" width="200px" >
+                  
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title">{{hotel.room_type}}</h5>
+                    <br>
+                    {{hotel.rooms}} <br>
+                    {{hotel.price}} <br>
+                    {{hotel.rooms}} <br> 
+                    {{hotel.features}}
+                    <a href="{% url 'user:bookinghotel' hotel.hotel_id.id %}"><button class="btn btn-warning">Booking</button></a> 
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
               </div>
-              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                
-
-            <br>
-                  <div class="form-floating mb-3">
-                    <input type="text" value="{{hotel_data.star}}" class="form-control" id="floatingInput" placeholder="">
-                    <label for="floatingInput"> Star</label>
-                  </div>
-                  <br>
-                  <div class="form-floating mb-3">
-                    <input type="text"value="{{hotel_data.price}}" class="form-control" id="floatingInput" placeholder="">
-                    <label for="floatingInput"> price/day</label>
-                  </div>
-                  <br>
-                  <div class="form-floating mb-3">
-                    <input type="text" value="{{hotel_data.place}}" class="form-control" id="floatingInput" placeholder="">
-                    <label for="floatingInput"> place </label>
-                  </div>
-                  <br>
-                  <div class="form-floating mb-3">
-                    <input type="text" value="{{hotel_data.contact}}" class="form-control" id="floatingInput" placeholder="">
-                    <label for="floatingInput">contacts </label>
-                  </div>
-                  <br>
-                  <div class="form-floating mb-3">
-                    <textarea class="form-control" name="" id="" cols="30" rows="10">{{hotel_data.features}}</textarea>
-                    <label for="floatingInput"> Features</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input type="email" value="{{hotel_data.email}}" class="form-control" id="floatingInput" placeholder="">
-                    <label for="floatingInput"> email</label>
-                  </div>
-                  <br>
-                  <div class="form-floating mb-3">
-                    <textarea class="form-control" name="" id="" cols="30" rows="10">{{hotel_data.Address}} <br>{{hotel.country}}</textarea>
-                    <label for="floatingInput"> Address</label>
-                  </div>
-
-                  <a href="{% url 'user:bookinghotel' %}"><button type="button" class="btn btn-warning btn-lg">  Booking</button> </a>            
-
-                
-    
+            </div>
+          </div>             
+          {% endfor %}
     
   
-    <h1 class="display-6">Reviews</h1>
-    <div class="col">
-      <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">alakananda</h5>
-              <p class="card-text">thank you hotel citygate for a wonderfull staying.</p>
-              <a href="#" class="btn btn-primary">Reply</a>
-          </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">shiyas</h5>
-              <p class="card-text">i like your services</p>
-              <a href="#" class="btn btn-primary">Reply</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     
 
     </div>

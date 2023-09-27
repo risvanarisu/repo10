@@ -9,29 +9,24 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
           <div class="mb-3">
+            <form action="" method="post">
+              {% csrf_token %}
             <label for=""><h3>Check in : </h3></label>
-          <input type="date" class="form-control" name="" id=""  ><br>
+          <input type="date" class="form-control" name="firstdate" id=""  ><br>
           <label for=""><h3>Check out : </h3></label>
-          <input type="date" class="form-control" name="" id=""  ><br>
+          <input type="date" class="form-control" name="lastdate" id=""  ><br>
           <label for=""><h3>Rooms : </h3></label>
-          <input class="form-control form-control-lg"  type="text" name="" id="" placeholder="eg:2 adults+2 children">
+          <input class="form-control form-control-lg"  type="text" name="members" id="" placeholder="eg:2 adults+2 children">
           <br>
-          <input class="form-control form-control-lg"  type="number" name="" id="" placeholder="number of rooms you want's">
+          <input class="form-control form-control-lg"  type="number" name="total" id="" placeholder="number of rooms you want's">
+        <br>
+        <input class="form-control form-control-lg"  type="number" name="day_s" id="" placeholder="total days">
         </div>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-sm example">
-            <option selected>Select Days You Want To Stay </option>
-            <option value="1">1 day</option>
-            <option value="2">2 days</option>
-            <option value="3">3 days</option>
-            <option value="2">4 days</option>
-            <option value="2">5 days</option>
-            <option value="2">6 days</option>
-            <option value="2">7 days</option>
-          </select>
-          <a href="">  <button type="button" class="btn btn-warning btn-lg">  Confirm booking</button></a>
+          
+          <a href="">  <button class="btn btn-warning btn-lg">  Confirm booking</button></a>
           
           </div>
-          
+        </form>
     </div>
 </div>
 

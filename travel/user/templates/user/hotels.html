@@ -63,9 +63,12 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{hotel.hotel_name}}</h5>
-          <label for="">place :</label><input type="text" name="" value="{{hotel.place}}" id=""><br><br>
-          <label for=""> Star :</label><input type="text" name="" value="{{hotel.star}}" id=""><a href="{% url 'user:hotelview' hotel.id %}"><button class="btn btn-warning">View</button></a> 
+          <h3 class="card-title">{{hotel.companyname}}</h5>
+          <br>
+          {{hotel.mobile}} <br>
+          {{hotel.email}} <br>
+          {{hotel.address}} <br> 
+          <a href="{% url 'user:hotelview' hotel.id %}"><button class="btn btn-warning">View</button></a> 
         </div>
       </div>
     </div>

@@ -16,112 +16,31 @@
 
 <div class="container">
     <div class="row">
-<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-  <h1 class="display-6">{{vehicle_data.vehicle_name}}</h1>
-  <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="/media/{{vehicle_data.vehicle_image}}" class="d-block w-60" alt="..."  width="500px">
-        </div>
-        <div class="carousel-item">
-          <img src="" class="d-block w-60" alt="..." width="500px">
-        </div>
-        <div class="carousel-item">
-          <img src="" class="d-block w-60" alt="..." width="500px">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-      
 
+ <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+  {% for vehicle in vehicle_data %}
+<div class="card mb-3" style="max-width: 540px;">
+<div class="row g-0">
+<div class="col-md-4">
+<img src="/media/{{vehicle.vehicle_image}}" class="img-fluid rounded-start" alt="" height="300px" width="200px" >
+
+</div>
+<div class="col-md-8">
+<div class="card-body">
+  <h3 class="card-title">{{vehicle.model}}</h5>
   <br>
-        <div class="form-floating mb-3">
-          <input type="text" value="{{vehicle_data.vehicle_id}}" class="form-control" id="floatingInput" placeholder="">
-          <label for="floatingInput"> vehicle id</label>
-        </div>
-        <br>
-        <div class="form-floating mb-3">
-          <input type="text"value="{{vehicle_data.model}}" class="form-control" id="floatingInput" placeholder="">
-          <label for="floatingInput"> model</label>
-        </div>
-        <br>
-        <div class="form-floating mb-3">
-          <input type="text" value="{{vehicle_data.price}}" class="form-control" id="floatingInput" placeholder="">
-          <label for="floatingInput"> price </label>
-        </div>
-        <br>
-        <div class="form-floating mb-3">
-          <input type="text" value="{{vehicle_data.contact}}" class="form-control" id="floatingInput" placeholder="">
-          <label for="floatingInput">contacts </label>
-        </div>
-        <br>
-        <div class="form-floating mb-3">
-          <textarea class="form-control" name="" id="" cols="30" rows="10">{{vehicle_data.features}}</textarea>
-          <label for="floatingInput"> Features</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="email" value="{{vehicle_data.email}}" class="form-control" id="floatingInput" placeholder="">
-          <label for="floatingInput"> email</label>
-        </div>
-        <br>
-        <div class="form-floating mb-3">
-          <textarea class="form-control" name="" id="" cols="30" rows="10">{{vehicle_data.address}}</textarea>
-          <label for="floatingInput"> Address</label>
-        </div>
-
-        
-        <a href="{% url 'user:bookvehicle' %}">    <button type="button" class="btn btn-warning btn-lg">  Booking</button></a>
-      
-
-
-
-<h1 class="display-6">Reviews</h1>
-<div class="col">
-<div class="row">
-<div class="col-sm-6 mb-3 mb-sm-0">
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">alakananda</h5>
-    <p class="card-text">thank you hotel citygate for a wonderfull staying.</p>
-    <a href="#" class="btn btn-primary">Reply</a>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">shiyas</h5>
-    <p class="card-text">i like your services</p>
-    <a href="#" class="btn btn-primary">Reply</a>
-  </div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-        
-        
-        
+  {{vehicle.price}} <br>
+   <br>
+  {{vehicle.features}} <br> 
   
-
-
-
-
-
-
-
-
+  <a href="{% url 'user:bookvehicle' vehicle.id %}"><button class="btn btn-warning">Booking</button></a> 
 </div>
+</div>
+</div>
+</div>
+</div>             
+{% endfor %} 
+
     </div>
 </div>
 
